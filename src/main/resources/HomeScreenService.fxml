@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="520.0" prefWidth="1026.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeScreenServiceController">
+    <children>
+        <BorderPane prefHeight="537.0" prefWidth="243.0">
+            <center>
+                <Pane prefHeight="533.0" prefWidth="780.0" stylesheets="@stylesheet.css" BorderPane.alignment="CENTER">
+                    <children>
+                        <ImageView fitHeight="546.0" fitWidth="872.0" layoutX="-1.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@images/background_homescreen.jpeg" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="24.0" layoutY="35.0" text="A better way to" textFill="WHITE">
+                            <font>
+                                <Font size="27.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="24.0" layoutY="72.0" text="find the right clients for your services" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="27.0" />
+                            </font>
+                        </Label>
+                        <Pane layoutX="288.0" layoutY="176.0" prefHeight="214.0" prefWidth="183.0" style="-fx-background-color: #0d2a35;">
+                            <children>
+                                <Label layoutX="12.0" layoutY="37.0" text="Bid at a private auction" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="12.0" layoutY="63.0" prefHeight="137.0" prefWidth="160.0" text="You will see a list of all the private auctions you have been invited to present your offer by clients, having the option to bid for it." textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                        <ImageView fitHeight="20.0" fitWidth="23.0" layoutX="82.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/email.png" />
+                           </image>
+                        </ImageView>
+                            </children>
+                            <effect>
+                                <DropShadow />
+                            </effect>
+                        </Pane>
+                        <Pane layoutX="51.0" layoutY="176.0" prefHeight="214.0" prefWidth="183.0" style="-fx-background-color: #0d2a35;">
+                            <children>
+                                <Label layoutX="12.0" layoutY="44.0" text="Bid at an open auction" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutY="55.0" prefHeight="167.0" prefWidth="183.0" text="You will see a list of all open auctions corresponding to your activity sector, with the option to submit your offer." textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                                <FontAwesomeIconView fill="WHITE" glyphName="DOLLAR" layoutX="83.0" layoutY="33.0" size="20" text="" wrappingWidth="16.571428298950195" />
+                            </children>
+                            <effect>
+                                <DropShadow />
+                            </effect>
+                        </Pane>
+                        <Pane layoutX="527.0" layoutY="173.0" prefHeight="214.0" prefWidth="183.0" style="-fx-background-color: #0d2a35;">
+                            <children>
+                                <Label layoutX="35.0" layoutY="43.0" text="Overview Board" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="17.0" layoutY="74.0" prefHeight="126.0" prefWidth="149.0" text="You can see a list of all auctions you are involved in, as well as their status and with what clients you have closed a deal with." textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                                <FontAwesomeIconView fill="WHITE" glyphName="CLIPBOARD" layoutX="79.0" layoutY="28.0" size="16" wrappingWidth="26.0" />
+                            </children>
+                            <effect>
+                                <DropShadow />
+                            </effect>
+                        </Pane>
+                        <FontAwesomeIconView fx:id="closeBtn" glyphName="CLOSE" layoutX="765.0" layoutY="15.0" onMouseClicked="#handleMouseEvent" size="19" />
+                    </children>
+                </Pane>
+            </center>
+            <left>
+                <VBox prefHeight="540.0" prefWidth="243.0" style="-fx-background-color: #2f4050;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Pane prefHeight="114.0" prefWidth="251.0" style="-fx-background-color: #2f4050;">
+                            <children>
+                                <ImageView fitHeight="50.0" fitWidth="54.0" layoutX="31.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/user_service.png" />
+                                    </image>
+                                </ImageView>
+                                <Label layoutX="31.0" layoutY="44.0" prefHeight="77.0" prefWidth="220.0" text="Welcome, Service Provider" textFill="WHITE" wrapText="true">
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane prefHeight="56.0" prefWidth="243.0" style="-fx-background-color: #2dae95;">
+                            <children>
+                                <Label layoutX="90.0" layoutY="18.0" text="Navigation" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <JFXButton graphicTextGap="15.0" prefHeight="63.0" prefWidth="246.0" stylesheets="@stylesheet.css" text="Home Screen" textFill="#9ea8b9">
+                            <graphic>
+                                <FontAwesomeIconView fx:id="icon" fill="#9ea8b9" glyphName="HOME" size="17" />
+                            </graphic>
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXButton graphicTextGap="15.0" prefHeight="63.0" prefWidth="246.0" stylesheets="@stylesheet.css" text="Bidding at auction" textFill="#9ea8b9">
+                            <graphic>
+                                <FontAwesomeIconView fill="#9ea8b9" glyphName="DOLLAR" size="17" />
+                            </graphic>
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXButton graphicTextGap="15.0" prefHeight="67.0" prefWidth="243.0" stylesheets="@stylesheet.css" text="Overview Board" textFill="#9ea8b9">
+                            <graphic>
+                                <FontAwesomeIconView fill="#9ea8b9" glyphName="CLIPBOARD" size="17" />
+                            </graphic>
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </JFXButton>
+                    </children>
+                </VBox>
+            </left>
+        </BorderPane>
+    </children>
+</AnchorPane>

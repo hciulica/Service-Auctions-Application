@@ -8,3 +8,34 @@
     -fx-prompt-text-fill: #989898;
 }
 
+#loginBtn:hover
+{
+ -fx-text-fill:  #FFF;
+ -fx-background-color: #3b4486;
+}
+#signupBtn:hover
+{
+    -fx-text-fill:  #3b4486;
+
+
+}
+
+.button:hover
+{
+ -fx-background-color: #283847;
+ -fx-text-fill: #FFF;
+
+}
+
+.button:hover .glyph-icon
+{
+ -fx-fill: #FFF;
+
+
+}
+
+#closeBtn: hover
+{
+-fx-fill: #FFF;
+}
+
