@@ -56,7 +56,7 @@
                   <Font name="System Bold" size="29.0" />
                </font>
             </Label>
-            <JFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="73.0" layoutY="264.0" prefHeight="43.0" prefWidth="261.0" style="-fx-background-color: #1c175d;" text="Log In" textFill="WHITE">
+            <JFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="73.0" layoutY="264.0" onAction="#handleLoginButtonAction" prefHeight="43.0" prefWidth="261.0" style="-fx-background-color: #1c175d;" text="Log In" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -76,7 +76,7 @@
 
             </children>
         </Pane>
-      <ImageView fx:id="closeBtn" fitHeight="23.0" fitWidth="31.0" layoutX="875.0" layoutY="3.0" onMouseClicked="#handleMouseEvent" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="closeBtn" fitHeight="23.0" fitWidth="31.0" layoutX="875.0" layoutY="3.0" onMouseClicked="#handleCloseButtonAction" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/close.png" />
          </image>

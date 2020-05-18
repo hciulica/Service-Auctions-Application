@@ -13,7 +13,7 @@ public class HomeScreenServiceController implements Initializable {
     public FontAwesomeIconView closeBtn;
 
     @FXML
-    public void handleMouseEvent(MouseEvent event) {
+    public void handleCloseButtonAction(MouseEvent event) {
         if(event.getSource()==closeBtn)
         {
             System.exit(0);

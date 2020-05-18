@@ -79,7 +79,7 @@
                         <DropShadow />
                      </effect>
                   </Pane>
-                  <FontAwesomeIconView fx:id="closeBtn" glyphName="CLOSE" layoutX="765.0" layoutY="15.0" onMouseClicked="#handleMouseEvent" size="19" />
+                  <FontAwesomeIconView fx:id="closeBtn" glyphName="CLOSE" layoutX="765.0" layoutY="15.0" onMouseClicked="#handleCloseButtonAction" size="19" />
                </children>
             </Pane>
          </center>
