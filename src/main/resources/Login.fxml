@@ -3,83 +3,83 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import java.net.URL?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="900.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
-
-    <children>
-        <AnchorPane prefHeight="503.0" prefWidth="442.0" style="-fx-background-color: #304492;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <children>
-                <ImageView fitHeight="558.0" fitWidth="461.0" layoutX="-1.0" opacity="0.29" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/back.png" />
-               </image>
-                </ImageView>
-                <Label alignment="CENTER" layoutX="49.0" layoutY="273.0" prefHeight="54.0" prefWidth="361.0" text="Service Auction Application" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold" size="27.0" />
-                    </font>
-                </Label>
-                <Label alignment="CENTER" layoutX="129.0" layoutY="348.0" prefHeight="23.0" prefWidth="205.0" text="It’s all about bidding" textFill="WHITE">
-                    <font>
-                        <Font name="Segoe UI Bold Italic" size="16.0" />
-                    </font>
-                </Label>
-                <ImageView fitHeight="155.0" fitWidth="205.0" layoutX="127.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@images/logo.png" />
-                    </image>
-                </ImageView>
-            </children>
-        </AnchorPane>
-        <Pane focusTraversable="true" layoutX="491.0" layoutY="25.0" prefHeight="454.0" prefWidth="395.0" stylesheets="@stylesheet.css" AnchorPane.bottomAnchor="24.0" AnchorPane.topAnchor="25.0">
-            <children>
-                <ImageView fitHeight="34.0" fitWidth="31.0" layoutX="22.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@images/person.png" />
-                    </image></ImageView>
-                <ImageView fitHeight="34.0" fitWidth="31.0" layoutX="22.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@images/password.png" />
-                    </image>
-                </ImageView>
-            <JFXTextField fx:id="txtUsername" focusColor="#121259" layoutX="67.0" layoutY="104.0" prefHeight="31.0" prefWidth="261.0" promptText="Enter email adress" stylesheets="@stylesheet.css" unFocusColor="#374387" />
-            <JFXPasswordField fx:id="txtPassword" focusColor="#121259" layoutX="67.0" layoutY="188.0" prefHeight="31.0" prefWidth="261.0" promptText="Password" stylesheets="@stylesheet.css" unFocusColor="#374387" />
-            <Label layoutX="150.0" layoutY="14.0" text="Sign In" textAlignment="CENTER" textFill="#1c175d">
-               <font>
-                  <Font name="System Bold" size="29.0" />
-               </font>
-            </Label>
-            <JFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="73.0" layoutY="264.0" onAction="#handleLoginButtonAction" prefHeight="43.0" prefWidth="261.0" style="-fx-background-color: #1c175d;" text="Log In" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-               <stylesheets>
-                  <URL value="@stylesheet.css" />
-                  <URL value="@stylesheet.css" />
-               </stylesheets></JFXButton>
-            <Label layoutX="70.0" layoutY="345.0" text="Don't have an account?" textFill="#a3a3a3">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Label>
-              <Label fx:id="signupBtn" alignment="CENTER" layoutX="235.0" layoutY="345.0" prefHeight="21.0" prefWidth="62.0" stylesheets="@stylesheet.css" text="Sign Up" textFill="#1c175d">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font></Label>
-
-            </children>
-        </Pane>
-      <ImageView fx:id="closeBtn" fitHeight="23.0" fitWidth="31.0" layoutX="875.0" layoutY="3.0" onMouseClicked="#handleCloseButtonAction" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/close.png" />
-         </image>
-      </ImageView>
-    </children>
-</AnchorPane>
+<StackPane fx:id="parentContainer" style="-fx-background-radius: 50;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
+   <children>
+      <AnchorPane id="AnchorPane" fx:id="anchorRoot" prefHeight="503.0" prefWidth="900.0" style="-fx-background-color: #fff;">
+      
+                <children>
+              <AnchorPane prefHeight="503.0" prefWidth="411.0" style="-fx-background-color: #304492;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" stylesheets="@stylesheet.css">
+                  <children>
+                      <ImageView fitHeight="509.0" fitWidth="423.0" layoutX="-1.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/image2.png" />
+                     </image>
+                      </ImageView>
+                      <Label alignment="CENTER" layoutX="24.0" layoutY="228.0" prefHeight="54.0" prefWidth="361.0" text="Service Auction Application" textFill="WHITE">
+                          <font>
+                              <Font name="System Bold" size="27.0" />
+                          </font>
+                      </Label>
+                      <Label alignment="CENTER" layoutX="102.0" layoutY="306.0" prefHeight="23.0" prefWidth="205.0" text="It’s all about bidding" textFill="WHITE">
+                          <font>
+                              <Font name="Segoe UI Bold Italic" size="16.0" />
+                          </font>
+                      </Label>
+                      <ImageView fitHeight="155.0" fitWidth="205.0" layoutX="102.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@images/logo.png" />
+                          </image>
+                      </ImageView>
+                  </children>
+              </AnchorPane>
+              <Pane focusTraversable="true" layoutX="463.0" layoutY="25.0" prefHeight="454.0" prefWidth="395.0" stylesheets="@stylesheet.css" AnchorPane.bottomAnchor="24.0" AnchorPane.topAnchor="25.0">
+                  <children>
+                      <ImageView fitHeight="34.0" fitWidth="31.0" layoutX="21.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@images/person.png" />
+                          </image>
+                  </ImageView>
+                      <ImageView fitHeight="34.0" fitWidth="31.0" layoutX="22.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@images/password.png" />
+                          </image>
+                      </ImageView>
+                  <JFXTextField fx:id="txtUsername" focusColor="#121259" layoutX="67.0" layoutY="120.0" prefHeight="31.0" prefWidth="261.0" promptText="Enter email adress" stylesheets="@stylesheet.css" unFocusColor="#374387" />
+                  <JFXPasswordField fx:id="txtPassword" focusColor="#121259" layoutX="67.0" layoutY="204.0" prefHeight="31.0" prefWidth="261.0" promptText="Password" stylesheets="@stylesheet.css" unFocusColor="#374387" />
+                  <Label layoutX="146.0" layoutY="14.0" text="Sign In " textAlignment="CENTER" textFill="#532f88">
+                     <font>
+                        <Font name="System Bold" size="35.0" />
+                     </font>
+                  </Label>
+                  <JFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="71.0" layoutY="297.0" onAction="#handleLoginButtonAction" prefHeight="54.0" prefWidth="249.0" style="-fx-background-color: #532f88; -fx-border-radius: 30; -fx-background-radius: 50;" text="Log In" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <Label layoutX="84.0" layoutY="377.0" text="Don't have an account?" textFill="#a3a3a3">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                    <Label fx:id="signupBtn" alignment="CENTER" layoutX="249.0" layoutY="377.0" onMouseClicked="#handleSignUpButtonAction" prefHeight="21.0" prefWidth="62.0" stylesheets="@stylesheet.css" text="Sign Up" textFill="#1c175d">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+      
+                              </children>
+              </Pane>
+            <FontAwesomeIconView fx:id="closeBtn2" glyphName="CLOSE" layoutX="871.0" layoutY="22.0" onMouseClicked="#handleCloseButtonAction"  size="19" text="" />
+          </children>
+      </AnchorPane>
+   </children>
+</StackPane>

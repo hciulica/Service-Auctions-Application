@@ -8,16 +8,14 @@
     -fx-prompt-text-fill: #989898;
 }
 
-#loginBtn:hover
-{
- -fx-text-fill:  #FFF;
- -fx-background-color: #3b4486;
-}
+
 #signupBtn:hover
 {
-    -fx-text-fill:  #3b4486;
-
-
+    -fx-text-fill:  #8cbec9;
+}
+#signinBtn:hover
+{
+    -fx-text-fill:  #8cbec9;
 }
 
 .button:hover
@@ -39,3 +37,7 @@
 -fx-fill: #FFF;
 }
 
+#closeBtn2: hover
+{
+-fx-fill: #8cbec9;
+}

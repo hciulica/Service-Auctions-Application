@@ -3,6 +3,11 @@ package controllers;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,10 +16,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -36,7 +43,11 @@ public class LoginController implements Initializable{
     @FXML
     public Label signupBtn;
     @FXML
-    public ImageView closeBtn;
+    public FontAwesomeIconView closeBtn2;
+    @FXML
+    private AnchorPane anchorRoot;
+    @FXML
+    private StackPane parentContainer;
 
 
 
@@ -67,13 +78,46 @@ public class LoginController implements Initializable{
 
 
 
+    }
+
+    @FXML
+    public void handleSignUpButtonAction(MouseEvent event) throws IOException
+    {
+        //Load Signup Client Screen
+        FXMLLoader loader= new FXMLLoader(getClass().getClassLoader().getResource("SignUpClient.fxml"));
+        Parent root=loader.load();
+
+        Scene scene = signupBtn.getScene();
+        SignUpClientController scene2Controller = loader.getController();
+        //make close button invisible
+        scene2Controller.closeBtn.setVisible(false);
+        //load signup screen where de login picture is
+        root.translateXProperty().set(-1 * 489);
+
+        parentContainer.getChildren().add(root);
+
+        Timeline timeline = new Timeline();
+        //incrementeaza coordonata X
+        KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
+        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.setOnFinished(t -> {
+            parentContainer.getChildren().remove(anchorRoot);
+
+        });
+        timeline.play();
+        //make close button visibile again
+        timeline.setOnFinished(e ->scene2Controller.closeBtn.setVisible(true));
+
+
 
     }
+
 
     @FXML
     public void handleCloseButtonAction(MouseEvent event)
     {
-        if(event.getSource()==closeBtn)
+        if(event.getSource()==closeBtn2)
         {
             System.exit(0);
         }
@@ -83,6 +127,6 @@ public class LoginController implements Initializable{
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
     }
 }
