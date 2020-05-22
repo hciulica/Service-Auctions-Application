@@ -33,7 +33,7 @@
                         <Font size="17.0" />
                     </font>
                 </Label>
-                <JFXButton fx:id="signUpClientBtn" layoutX="92.0" layoutY="299.0" onAction="#handleSignUpButtonAction" prefHeight="54.0" prefWidth="249.0" style="-fx-border-radius: 50; -fx-background-color: transparent; -fx-border-color: #FFF;" text="Sign Up as Client" textFill="WHITE" />
+                <JFXButton fx:id="signUpClientBtn" layoutX="92.0" layoutY="299.0" onAction="#handleSignUpClientButtonAction" prefHeight="54.0" prefWidth="249.0" style="-fx-border-radius: 50; -fx-background-color: transparent; -fx-border-color: #FFF; -fx-background-radius: 50;" text="Sign Up as Client" textFill="WHITE" />
             </children>
         </AnchorPane>
         <Label layoutX="537.0" layoutY="455.0" text="Already have an account?" textFill="#a3a3a3">
@@ -51,9 +51,9 @@
                 <Font name="System Bold" size="35.0" />
             </font>
         </Label>
-        <VBox layoutX="489.0" layoutY="98.0" prefHeight="262.0" prefWidth="345.0">
+        <VBox layoutX="489.0" layoutY="96.0" prefHeight="262.0" prefWidth="345.0">
             <children>
-                <TextField prefHeight="37.0" prefWidth="214.0" promptText="Name of the bussines" style="-fx-background-color: #f5f8f8; -fx-text-box-border: trasnparent;" stylesheets="@stylesheet.css">
+                <TextField fx:id="bussinesName" prefHeight="37.0" prefWidth="214.0" promptText="Name of the bussines" style="-fx-background-color: #f5f8f8; -fx-text-box-border: trasnparent;" stylesheets="@stylesheet.css">
                     <VBox.margin>
                         <Insets bottom="5.0" top="5.0" />
                     </VBox.margin>
@@ -63,28 +63,38 @@
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
             </ComboBox>
-                <TextField prefHeight="37.0" prefWidth="214.0" promptText="Phone Number" style="-fx-background-color: #f5f8f8;">
+                <TextField fx:id="phoneNr" prefHeight="37.0" prefWidth="214.0" promptText="Phone Number" style="-fx-background-color: #f5f8f8;">
                     <VBox.margin>
                         <Insets bottom="5.0" top="5.0" />
                     </VBox.margin>
                 </TextField>
-                <TextField prefHeight="37.0" prefWidth="214.0" promptText="E-mail adress" style="-fx-background-color: #f5f8f8;">
+                <TextField fx:id="email" prefHeight="37.0" prefWidth="214.0" promptText="E-mail adress" style="-fx-background-color: #f5f8f8;">
                     <VBox.margin>
                         <Insets bottom="5.0" top="5.0" />
                     </VBox.margin>
                 </TextField>
-                <PasswordField prefHeight="41.0" prefWidth="345.0" promptText="Password" style="-fx-text-box-border: transparent; -fx-background-color: #f5f8f8;">
+                <PasswordField fx:id="password" prefHeight="41.0" prefWidth="345.0" promptText="Password" style="-fx-text-box-border: transparent; -fx-background-color: #f5f8f8;">
                     <VBox.margin>
                         <Insets bottom="5.0" top="5.0" />
                     </VBox.margin>
                 </PasswordField>
+            <Label fx:id="signUpMessage" prefHeight="27.0" prefWidth="249.0" textFill="#fc0000">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
             </children>
         </VBox>
-        <JFXButton buttonType="RAISED" layoutX="537.0" layoutY="379.0" prefHeight="54.0" prefWidth="249.0" style="-fx-background-radius: 50; -fx-background-color: #532f88;" text="SIGN UP" textFill="WHITE">
+        <JFXButton fx:id="signUpBtn" buttonType="RAISED" layoutX="537.0" layoutY="379.0" onAction="#handleSignUpButtonAction" prefHeight="54.0" prefWidth="249.0" style="-fx-background-radius: 50; -fx-background-color: #532f88;" text="SIGN UP" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </JFXButton>
-          <FontAwesomeIconView fx:id="closeBtn" glyphName="CLOSE" layoutX="871.0" layoutY="22.0" onMouseClicked="#handleCloseButtonAction" size="19" text="" />
+          <FontAwesomeIconView fx:id="closeBtn2" glyphName="CLOSE" layoutX="871.0" layoutY="22.0" onMouseClicked="#handleCloseButtonAction" size="19" text="" />
+      <Label fx:id="signUpMessage" layoutX="563.0" layoutY="344.0" prefHeight="27.0" prefWidth="249.0" textAlignment="CENTER" textFill="#fc0000">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

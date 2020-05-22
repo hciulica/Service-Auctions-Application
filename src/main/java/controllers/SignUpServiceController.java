@@ -2,6 +2,7 @@ package controllers;
 
 import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import exception.EmptySignUpFieldException;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -12,15 +13,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+import registration.User;
 
 import java.io.IOException;
 import java.net.URL;
@@ -28,7 +30,9 @@ import java.util.ResourceBundle;
 
 public class SignUpServiceController implements Initializable {
     @FXML
-    public FontAwesomeIconView closeBtn;
+    public Label signUpMessage;
+    @FXML
+    public FontAwesomeIconView closeBtn2;
     @FXML
     private JFXButton signUpClientBtn;
     @FXML
@@ -37,15 +41,48 @@ public class SignUpServiceController implements Initializable {
     private ComboBox <String> fieldBtn;
     @FXML
     public Label signinBtn;
+    @FXML
+    public TextField bussinesName;
+    @FXML
+    public TextField phoneNr;
+    @FXML
+    public TextField email;
+    @FXML
+    public PasswordField password;
+    @FXML
+    public JFXButton signUpBtn;
 
 
     ObservableList <String> activityField= FXCollections.
             observableArrayList ("Agricultura","Constructii", "Transport si Depozitare",
                     "Hoteluri si Restaurante", "Tranzactii Imobiliare", "Invatamant",
                     "Sanatate","Activitati Culturale", "Activitati Tehnice", "Alte");
-
-
     public void handleSignUpButtonAction(ActionEvent event) throws IOException
+    {
+            try
+            {
+                User.addUserProvider(bussinesName.getText(), (String)fieldBtn.getValue(), (String) phoneNr.getText(), email.getText(), password.getText());
+                //Load the Home Page for Provider
+                Parent home_page_parent = FXMLLoader.load(getClass().getClassLoader().getResource("HomeScreenService.fxml"));
+                Scene home_page_scene = new Scene(home_page_parent);
+                Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                app_stage.hide();
+                app_stage.setScene(home_page_scene);
+                app_stage.show();
+            }
+            catch (EmptySignUpFieldException e)
+            {
+                //error if not all fields are completed
+                signUpMessage.setText(e.getMessage());
+            }
+
+
+
+
+    }
+
+
+    public void handleSignUpClientButtonAction(ActionEvent event) throws IOException
     {
         //Load Signup Client Screen
         FXMLLoader loader= new FXMLLoader(getClass().getClassLoader().getResource("SignUpClient.fxml"));
@@ -65,7 +102,7 @@ public class SignUpServiceController implements Initializable {
 
         Timeline timeline = new Timeline();
         KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
-        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
+        KeyFrame kf = new KeyFrame(Duration.millis(800), kv);
         timeline.getKeyFrames().add(kf);
         timeline.setOnFinished(t -> {
             parentContainer.getChildren().remove(anchorRoot);
@@ -92,7 +129,7 @@ public class SignUpServiceController implements Initializable {
 
     }
     public void handleCloseButtonAction(MouseEvent event) {
-        if (event.getSource() == closeBtn) {
+        if (event.getSource() == closeBtn2) {
             System.exit(0);
         }
     }
@@ -103,7 +140,8 @@ public class SignUpServiceController implements Initializable {
 
         //Change prompt Text Color
         fieldBtn.setEditable(false);
-        fieldBtn.setButtonCell(new ListCell<String>(){
+        fieldBtn.setButtonCell(new ListCell<String>()
+        {
 
             @Override
             protected void updateItem(String item, boolean empty)
