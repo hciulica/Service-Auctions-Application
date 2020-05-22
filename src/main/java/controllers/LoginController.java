@@ -4,7 +4,6 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
-import exception.IncorrectMailOrPassException;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -24,7 +23,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.json.JSONException;
-import registration.User;
 
 import java.io.IOException;
 import java.net.URL;
@@ -37,9 +35,9 @@ public class LoginController implements Initializable{
     @FXML
     public Text loginMessage;
     @FXML
-    public JFXPasswordField txtPassword;
+    public JFXPasswordField passwordField;
     @FXML
-    public JFXTextField txtEmail;
+    public JFXTextField usernameField;
     @FXML
     public JFXButton loginBtn;
     @FXML
@@ -50,52 +48,34 @@ public class LoginController implements Initializable{
     private AnchorPane anchorRoot;
     @FXML
     private StackPane parentContainer;
-    @FXML
-    public Label signInMessage;
 
 
-    //verify user credentials
+
     @FXML
     public void handleLoginButtonAction(ActionEvent event) throws IOException, JSONException {
 
-        try {
-            //verify if the user is a Client
-           if((User.loginCheckClient(txtEmail.getText(),txtPassword.getText()).equals("Client")))
-           {
-               //switch to home screen
-               Parent home_page_parent = FXMLLoader.load(getClass().getClassLoader().getResource("HomeScreenClient.fxml"));
-               Scene home_page_scene = new Scene(home_page_parent);
-               Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-               app_stage.hide();
-               app_stage.setScene(home_page_scene);
-               app_stage.show();
+        /*JSONArray jrr = new JSONArray();
+        JSONObject obj = new JSONObject();
 
-           }
-           //Verify if the user is a Provider
-            if((User.loginCheckProv(txtEmail.getText(),txtPassword.getText()).equals("Provider")))
-            {
-                //switch to home screen
-                Parent home_page_parent = FXMLLoader.load(getClass().getClassLoader().getResource("HomeScreenService.fxml"));
-                Scene home_page_scene = new Scene(home_page_parent);
-                Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                app_stage.hide();
-                app_stage.setScene(home_page_scene);
-                app_stage.show();
-
-            }
-            //if the user is none of the above throw exception
-            else
-            {
-                User.checkIncorrect();
-            }
+        obj.put("Username", usernameField.getText());
+        obj.put("Password",passwordField.getText());
 
 
-        }
-        catch (IncorrectMailOrPassException e)
-        {
-            //error if not all fields are completed
-            signInMessage.setText(e.getMessage());
-        }
+        if(obj.equals(jrr.get(1))){
+            JOptionPane.showMessageDialog(null,"Password matched");
+
+        }else
+            JOptionPane.showMessageDialog(null,"Incorrect User/Password!");
+*/
+        //switch to home screen
+        Parent home_page_parent= FXMLLoader.load(getClass().getClassLoader().getResource("HomeScreenClient.fxml"));
+        Scene home_page_scene= new Scene(home_page_parent);
+        Stage app_stage= (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.hide();
+        app_stage.setScene(home_page_scene);
+        app_stage.show();
+
+
 
 
     }
@@ -119,7 +99,7 @@ public class LoginController implements Initializable{
         Timeline timeline = new Timeline();
         //incrementeaza coordonata X
         KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
-        KeyFrame kf = new KeyFrame(Duration.millis(950), kv);
+        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
         timeline.getKeyFrames().add(kf);
         timeline.setOnFinished(t -> {
             parentContainer.getChildren().remove(anchorRoot);
