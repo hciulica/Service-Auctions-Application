@@ -17,7 +17,7 @@
       <AnchorPane id="AnchorPane" fx:id="anchorRoot" prefHeight="503.0" prefWidth="900.0" style="-fx-background-color: #fff;">
       
                 <children>
-              <AnchorPane prefHeight="503.0" prefWidth="411.0" style="-fx-background-color: #304492;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" stylesheets="@stylesheet.css">
+              <AnchorPane prefHeight="503.0" prefWidth="411.0" style="-fx-background-color: #304492;" stylesheets="@stylesheet.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <children>
                       <ImageView fitHeight="509.0" fitWidth="423.0" layoutX="-1.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -53,32 +53,37 @@
                               <Image url="@images/password.png" />
                           </image>
                       </ImageView>
-                  <JFXTextField fx:id="txtUsername" focusColor="#121259" layoutX="67.0" layoutY="120.0" prefHeight="31.0" prefWidth="261.0" promptText="Enter email adress" stylesheets="@stylesheet.css" unFocusColor="#374387" />
+                  <JFXTextField fx:id="txtEmail" focusColor="#121259" layoutX="67.0" layoutY="120.0" prefHeight="31.0" prefWidth="261.0" promptText="Enter email adress" stylesheets="@stylesheet.css" unFocusColor="#374387" />
                   <JFXPasswordField fx:id="txtPassword" focusColor="#121259" layoutX="67.0" layoutY="204.0" prefHeight="31.0" prefWidth="261.0" promptText="Password" stylesheets="@stylesheet.css" unFocusColor="#374387" />
                   <Label layoutX="146.0" layoutY="14.0" text="Sign In " textAlignment="CENTER" textFill="#532f88">
                      <font>
                         <Font name="System Bold" size="35.0" />
                      </font>
                   </Label>
-                  <JFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="71.0" layoutY="297.0" onAction="#handleLoginButtonAction" prefHeight="54.0" prefWidth="249.0" style="-fx-background-color: #532f88; -fx-border-radius: 30; -fx-background-radius: 50;" text="Log In" textFill="WHITE">
+                  <JFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="73.0" layoutY="311.0" onAction="#handleLoginButtonAction" prefHeight="54.0" prefWidth="249.0" style="-fx-background-color: #532f88; -fx-border-radius: 30; -fx-background-radius: 50;" text="Log In" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </JFXButton>
-                  <Label layoutX="84.0" layoutY="377.0" text="Don't have an account?" textFill="#a3a3a3">
+                  <Label layoutX="84.0" layoutY="388.0" text="Don't have an account?" textFill="#a3a3a3">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                    <Label fx:id="signupBtn" alignment="CENTER" layoutX="249.0" layoutY="377.0" onMouseClicked="#handleSignUpButtonAction" prefHeight="21.0" prefWidth="62.0" stylesheets="@stylesheet.css" text="Sign Up" textFill="#1c175d">
+                    <Label fx:id="signupBtn" alignment="CENTER" layoutX="249.0" layoutY="388.0" onMouseClicked="#handleSignUpButtonAction" prefHeight="21.0" prefWidth="62.0" stylesheets="@stylesheet.css" text="Sign Up" textFill="#1c175d">
                      <font>
                         <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="signInMessage" layoutX="84.0" layoutY="264.0" prefHeight="31.0" prefWidth="309.0" textAlignment="CENTER" textFill="#fc0000">
+                     <font>
+                        <Font size="18.0" />
                      </font>
                   </Label>
       
                               </children>
               </Pane>
-            <FontAwesomeIconView fx:id="closeBtn2" glyphName="CLOSE" layoutX="871.0" layoutY="22.0" onMouseClicked="#handleCloseButtonAction"  size="19" text="" />
+            <FontAwesomeIconView fx:id="closeBtn2" glyphName="CLOSE" layoutX="871.0" layoutY="22.0" onMouseClicked="#handleCloseButtonAction" size="19" text="" />
           </children>
       </AnchorPane>
    </children>
