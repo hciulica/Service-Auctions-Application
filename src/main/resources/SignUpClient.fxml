@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorRoot" prefHeight="503.0" prefWidth="900.0" style="-fx-background-color: #fff; -fx-background-radius: 0;" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SignUpClientController">
+
+    <children>
+        <AnchorPane layoutX="522.0" prefHeight="503.0" prefWidth="411.0" style="-fx-background-color: #304492;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="522.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <ImageView fitHeight="555.0" fitWidth="411.0" layoutX="1.0" layoutY="2.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/image2.png" />
+                    </image>
+                </ImageView>
+                <Label alignment="CENTER" layoutX="36.0" layoutY="90.0" prefHeight="54.0" prefWidth="361.0" text="Hello, Friend!" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="40.0" />
+                    </font>
+                </Label>
+            <Label layoutX="98.0" layoutY="155.0" prefHeight="82.0" prefWidth="237.0" text="Enter your personal details and start your journey with us" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="signUpProviderBtn" layoutX="92.0" layoutY="299.0" onAction="#handleSignUpProvButtonAction" prefHeight="54.0" prefWidth="249.0" style="-fx-border-radius: 50; -fx-background-color: transparent; -fx-border-color: #FFF; -fx-background-radius: 50;" text="Sign Up as Provider" textFill="WHITE" />
+            <FontAwesomeIconView fx:id="closeBtn" glyphName="CLOSE" layoutX="372.0" layoutY="20.0" onMouseClicked="#handleCloseButtonAction" size="19" />
+            </children>
+        </AnchorPane>
+          <Label layoutX="145.0" layoutY="466.0" text="Already have an account?" textFill="#a3a3a3">
+              <font>
+                  <Font name="System Bold" size="15.0" />
+              </font>
+          </Label>
+          <Label fx:id="signinBtn" alignment="CENTER" layoutX="325.0" layoutY="466.0" onMouseClicked="#handleSignInButtonAction" prefHeight="21.0" prefWidth="62.0" stylesheets="@stylesheet.css" text="Sign In" textFill="#1c175d">
+              <font>
+                  <Font name="System Bold" size="15.0" />
+              </font>
+          </Label>
+      <Label layoutX="145.0" layoutY="33.0" text="Create Account" textFill="#532f88" wrapText="true">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </Label>
+      <VBox layoutX="99.0" layoutY="111.0" prefHeight="268.0" prefWidth="345.0">
+         <children>
+            <TextField fx:id="firstName" prefHeight="37.0" prefWidth="214.0" promptText="First Name" style="-fx-background-color: #f5f8f8; -fx-text-box-border: trasnparent;" stylesheets="@stylesheet.css">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="lastName" prefHeight="37.0" prefWidth="214.0" promptText="Last Name" style="-fx-background-color: #f5f8f8;">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="phoneNr" prefHeight="37.0" prefWidth="214.0" promptText="Phone Number" style="-fx-background-color: #f5f8f8;">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="email" prefHeight="37.0" prefWidth="214.0" promptText="E-mail adress" style="-fx-background-color: #f5f8f8;">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <PasswordField fx:id="password" prefHeight="41.0" prefWidth="345.0" promptText="Password" style="-fx-text-box-border: transparent; -fx-background-color: #f5f8f8;">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin>
+            </PasswordField>
+         </children>
+      </VBox>
+      <JFXButton fx:id="signUpBtn" buttonType="RAISED" layoutX="147.0" layoutY="403.0" onAction="#handleSignUpButtonAction" prefHeight="54.0" prefWidth="249.0" style="-fx-background-radius: 50; -fx-background-color: #532f88;" text="SIGN UP" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="signUpMessage" layoutX="134.0" layoutY="354.0" prefHeight="37.0" prefWidth="275.0" textFill="#fc0000">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>
