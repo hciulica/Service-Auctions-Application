@@ -91,7 +91,7 @@
             </font>
         </JFXButton>
           <FontAwesomeIconView fx:id="closeBtn2" glyphName="CLOSE" layoutX="871.0" layoutY="22.0" onMouseClicked="#handleCloseButtonAction" size="19" text="" />
-      <Label fx:id="signUpMessage" layoutX="563.0" layoutY="344.0" prefHeight="27.0" prefWidth="249.0" textAlignment="CENTER" textFill="#fc0000">
+      <Label fx:id="signUpMessage" layoutX="556.0" layoutY="345.0" prefHeight="27.0" prefWidth="289.0" textAlignment="CENTER" textFill="#fc0000">
          <font>
             <Font size="18.0" />
          </font>

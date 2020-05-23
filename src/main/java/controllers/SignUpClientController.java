@@ -2,6 +2,7 @@ package controllers;
 
 import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import exception.EmailNotAvailable;
 import exception.EmptySignUpFieldException;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
@@ -92,6 +93,10 @@ public class SignUpClientController implements Initializable {
         }
         catch (EmptySignUpFieldException e)
         {   //error if not all fields are completed
+            signUpMessage.setText(e.getMessage());
+        }
+        catch(EmailNotAvailable e)
+        {
             signUpMessage.setText(e.getMessage());
         }
 

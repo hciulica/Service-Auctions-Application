@@ -1,5 +1,6 @@
 package registration;
 
+import exception.EmailNotAvailable;
 import exception.EmptySignUpFieldException;
 import exception.IncorrectMailOrPassException;
 import org.json.simple.JSONArray;
@@ -19,7 +20,7 @@ public class User {
     public static String initVector = "RandomInitVector";
 
     //adds clients in json file: usersClient
-    public static void addUserClient(String firstName, String lastName, String phoneNr, String email, String password) throws EmptySignUpFieldException {
+    public static void addUserClient(String firstName, String lastName, String phoneNr, String email, String password) throws EmptySignUpFieldException,EmailNotAvailable {
 
         checkIfFieldsAreEmptyClient(firstName, lastName, email, phoneNr, password);
 
@@ -38,6 +39,16 @@ public class User {
             e.printStackTrace();
         } catch (ParseException e) {
             e.printStackTrace();
+        }
+        Iterator<JSONObject> iterator = arrayClient.iterator();
+        while (iterator.hasNext())
+        {
+            JSONObject obj2 = iterator.next();
+            if (obj2.get("Email:").equals(email))
+            {
+                throw new EmailNotAvailable();
+            }
+
         }
 
         obj.put("First Name:", firstName);
@@ -61,7 +72,7 @@ public class User {
     }
 
     //adds clients in json file:usersProvider
-    public static void addUserProvider(String bussinesName, String activityField, String phoneNr, String email, String password) throws EmptySignUpFieldException {
+    public static void addUserProvider(String bussinesName, String activityField, String phoneNr, String email, String password) throws EmptySignUpFieldException, EmailNotAvailable{
 
         checkIfFieldsAreEmptyProv(bussinesName, activityField, phoneNr, email, password);
         JSONObject obj = new JSONObject();
@@ -79,6 +90,16 @@ public class User {
             e.printStackTrace();
         } catch (ParseException e) {
             e.printStackTrace();
+        }
+        Iterator<JSONObject> iterator = arrayProvider.iterator();
+        while (iterator.hasNext())
+        {
+            JSONObject obj2 = iterator.next();
+            if (obj2.get("Email:").equals(email))
+            {
+                throw new EmailNotAvailable();
+            }
+
         }
 
         obj.put("First Name:", bussinesName);
@@ -213,7 +234,6 @@ public class User {
             throw new IncorrectMailOrPassException();
         }
     }
-
 
 
 }

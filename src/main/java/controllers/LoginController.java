@@ -107,7 +107,6 @@ public class LoginController implements Initializable{
         FXMLLoader loader= new FXMLLoader(getClass().getClassLoader().getResource("SignUpClient.fxml"));
         Parent root=loader.load();
 
-        Scene scene = signupBtn.getScene();
         SignUpClientController scene2Controller = loader.getController();
         //make close button invisible
         scene2Controller.closeBtn.setVisible(false);
