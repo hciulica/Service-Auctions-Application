@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="520.0" prefWidth="1026.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeScreenServiceController">
+<AnchorPane prefHeight="537.0" prefWidth="1075.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeScreenServiceController">
     <children>
         <BorderPane prefHeight="537.0" prefWidth="243.0">
             <center>
@@ -79,7 +79,7 @@
                                 <DropShadow />
                             </effect>
                         </Pane>
-                        <FontAwesomeIconView fx:id="closeBtn" glyphName="CLOSE" layoutX="765.0" layoutY="15.0" onMouseClicked="#handleCloseButtonAction" size="19" />
+                        <FontAwesomeIconView fx:id="closeBtn" glyphName="CLOSE" layoutX="808.0" layoutY="16.0" onMouseClicked="#handleCloseButtonAction" size="19" />
                     </children>
                 </Pane>
             </center>
@@ -117,9 +117,17 @@
                                 <Font name="System Bold" size="14.0" />
                             </font>
                         </JFXButton>
-                        <JFXButton graphicTextGap="15.0" prefHeight="63.0" prefWidth="246.0" stylesheets="@stylesheet.css" text="Bidding at auction" textFill="#9ea8b9">
+                  <JFXButton graphicTextGap="15.0" prefHeight="63.0" prefWidth="246.0" stylesheets="@stylesheet.css" text="Bidding at auction" textFill="#9ea8b9">
+                     <graphic>
+                        <FontAwesomeIconView fill="#9ea8b9" glyphName="DOLLAR" size="17" />
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXButton>
+                        <JFXButton graphicTextGap="15.0" prefHeight="63.0" prefWidth="246.0" stylesheets="@stylesheet.css" text="Bidding at private auction" textFill="#9ea8b9">
                             <graphic>
-                                <FontAwesomeIconView fill="#9ea8b9" glyphName="DOLLAR" size="17" />
+                                <FontAwesomeIconView fill="#9ea8b9" glyphName="ENVELOPE_ALT" size="17" />
                             </graphic>
                             <font>
                                 <Font name="System Bold" size="14.0" />

@@ -106,7 +106,6 @@ public class LoginController implements Initializable{
         //Load Signup Client Screen
         FXMLLoader loader= new FXMLLoader(getClass().getClassLoader().getResource("SignUpClient.fxml"));
         Parent root=loader.load();
-
         SignUpClientController scene2Controller = loader.getController();
         //make close button invisible
         scene2Controller.closeBtn.setVisible(false);
@@ -140,8 +139,6 @@ public class LoginController implements Initializable{
         {
             System.exit(0);
         }
-
-
 
     }
     @Override

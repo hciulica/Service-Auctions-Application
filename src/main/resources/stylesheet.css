@@ -41,3 +41,24 @@
 {
 -fx-fill: #8cbec9;
 }
+
+.text-area {
+    -fx-background-insets: 0;
+    -fx-background-color: transparent, white;
+
+
+    -fx-focus-color: -fx-control-inner-background;
+    -fx-faint-focus-color: -fx-control-inner-background;
+    -fx-text-box-border: -fx-control-inner-background;
+    -fx-border-width: -1;
+}
+.text-area .content {
+
+  -fx-background-color: #f5f8f8;
+
+}
+
+.text-area:focused .content {
+   -fx-background-color: #f5f8f8;
+   -fx-border-style: none;
+}
