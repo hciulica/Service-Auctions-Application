@@ -28,6 +28,8 @@ public class HomeScreenClientController implements Initializable {
     public JFXButton overviewBtn;
     @FXML
     public BorderPane mainPane;
+    @FXML
+    public Pane center;
 
 
     @FXML
@@ -43,6 +45,15 @@ public class HomeScreenClientController implements Initializable {
     {
         FxmlLoader object= new FxmlLoader();
         Pane view = object.getPage("GenerateAucScreenClient");
+        mainPane.setCenter(view);
+
+    }
+
+    @FXML
+    public void handleHomeScreenBtnAction(ActionEvent event)
+    {
+        FxmlLoader object= new FxmlLoader();
+        Pane view = center;
         mainPane.setCenter(view);
 
     }

@@ -1,4 +1,5 @@
 package controllers;
+
 import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.collections.FXCollections;
@@ -7,14 +8,19 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import registration.Client;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 
@@ -27,6 +33,11 @@ public class GenerateAucScreenClientController implements Initializable {
     public VBox pinAuc=null;
     @FXML
     public JFXButton submitBtn;
+    @FXML
+    public TextField title;
+    @FXML
+    public TextArea description;
+
 
     ObservableList<String> activityField= FXCollections.
             observableArrayList ("Agricultura","Constructii", "Transport si Depozitare",
@@ -45,19 +56,51 @@ public class GenerateAucScreenClientController implements Initializable {
     @FXML
     public void handleSubmitButtonAction(ActionEvent event)
     {
-        Node[] nodes = new Node[1];
+        /*Node[] nodes = new Node[1];
         for (int i = 0; i < nodes.length; i++) {
             try {
 
                 final int j = i;
                 nodes[i] = FXMLLoader.load(getClass().getClassLoader().getResource("AuctionClient.fxml"));
-                pinAuc.getChildren().add(nodes[i]);
-            } catch (IOException e) {
+                pinAuc.getChildren().add(nodes[i]);*/
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("AuctionClient.fxml"));
+            pinAuc.getChildren().add(loader.load());
+            AuctionClientController auction = loader.getController();
+            auction.setFields(title.getText(),(String) fieldBtn.getValue(), description.getText());
+
+
+            }
+             catch (IOException e)
+            {
                 e.printStackTrace();
             }
-        }
-
     }
+    //display all auction that have been registred in the past
+    public void display()  {
+        try {
+            JSONArray array=new JSONArray();
+            array=Client.displayAuctions();
+            Iterator<JSONObject> iterator = array.iterator();
+            while (iterator.hasNext())
+            {
+                JSONObject obj2 = iterator.next();
+
+                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("AuctionClient.fxml"));
+                pinAuc.getChildren().add(loader.load());
+                AuctionClientController auction = loader.getController();
+                auction.displayAuctions((String)obj2.get("Title:"), (String)obj2.get("Activity Field:"),(String)obj2.get("Description:"));
+            }
+
+
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -83,9 +126,7 @@ public class GenerateAucScreenClientController implements Initializable {
 
         });
 
-
-
-
+        display();
 
 
     }

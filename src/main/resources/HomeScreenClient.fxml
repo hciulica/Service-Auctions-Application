@@ -16,7 +16,7 @@
    <children>
       <BorderPane fx:id="mainPane" prefHeight="537.0" prefWidth="243.0">
          <center>
-            <Pane prefHeight="533.0" prefWidth="780.0" stylesheets="@stylesheet.css" BorderPane.alignment="CENTER">
+            <Pane fx:id="center" prefHeight="533.0" prefWidth="780.0" stylesheets="@stylesheet.css" BorderPane.alignment="CENTER">
                <children>
                   <ImageView fitHeight="546.0" fitWidth="872.0" layoutX="-1.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -109,7 +109,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <JFXButton fx:id="homeScreenBtn" graphicTextGap="15.0" prefHeight="63.0" prefWidth="246.0" stylesheets="@stylesheet.css" text="Home Screen" textFill="#9ea8b9">
+                  <JFXButton fx:id="homeScreenBtn" graphicTextGap="15.0" onAction="#handleHomeScreenBtnAction" prefHeight="63.0" prefWidth="246.0" stylesheets="@stylesheet.css" text="Home Screen" textFill="#9ea8b9">
                      <graphic>
                         <FontAwesomeIconView fx:id="icon" fill="#9ea8b9" glyphName="HOME" size="17" />
                      </graphic>

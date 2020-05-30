@@ -55,6 +55,7 @@ public class SignUpClientController implements Initializable {
 
 
 
+
     public void handleSignUpProvButtonAction(ActionEvent event) throws IOException
     {
         //Load Signup Provider Screen
@@ -90,6 +91,7 @@ public class SignUpClientController implements Initializable {
             app_stage.hide();
             app_stage.setScene(home_page_scene);
             app_stage.show();
+            LoginController.email=email.getText();
         }
         catch (EmptySignUpFieldException e)
         {   //error if not all fields are completed

@@ -53,7 +53,7 @@ public class LoginController implements Initializable{
     @FXML
     public Label signInMessage;
 
-
+    public static String email;
     //verify user credentials
     @FXML
     public void handleLoginButtonAction(ActionEvent event) throws IOException, JSONException {
@@ -69,6 +69,7 @@ public class LoginController implements Initializable{
                app_stage.hide();
                app_stage.setScene(home_page_scene);
                app_stage.show();
+               email=txtEmail.getText();
 
            }
            //Verify if the user is a Provider
@@ -81,6 +82,8 @@ public class LoginController implements Initializable{
                 app_stage.hide();
                 app_stage.setScene(home_page_scene);
                 app_stage.show();
+                email=txtEmail.getText();
+
 
             }
             //if the user is none of the above throw exception

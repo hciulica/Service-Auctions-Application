@@ -50,12 +50,13 @@ public class User {
             }
 
         }
-
+        JSONArray array= new JSONArray();
         obj.put("First Name:", firstName);
         obj.put("Last Name:", lastName);
         obj.put("Email:",email);
         obj.put("Phone Nr:", phoneNr);
         obj.put("Password:", encodePassword(key,initVector,password));
+        obj.put("Auction:", array);
         //obj.put("Password:",password);
         arrayClient.add(obj);
         try {
