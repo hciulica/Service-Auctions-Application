@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="226.0" prefWidth="523.0" style="-fx-background-color: #fff; -fx-background-radius: 5; -fx-border-radius: 5;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AuctionClientController">
+<Pane fx:id="dealRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="226.0" prefWidth="523.0" style="-fx-background-color: #fff; -fx-background-radius: 5; -fx-border-radius: 5;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AuctionClientController">
    <padding>
       <Insets bottom="5.0" top="5.0" />
    </padding>
@@ -61,7 +61,7 @@
             <Pane prefHeight="86.0" prefWidth="516.0">
                <children>
                   <ComboBox fx:id="fieldBtn" layoutX="23.0" layoutY="14.0" prefHeight="50.0" prefWidth="304.0" promptText="Choose an Offer" style="-fx-background-color: #f5f8f8; -fx-text-color: #989898;" stylesheets="@stylesheet.css" />
-                  <JFXButton fx:id="submitBtn" contentDisplay="CENTER" layoutX="342.0" layoutY="20.0" prefHeight="38.0" prefWidth="160.0" style="-fx-background-color: #2dae95; -fx-background-radius: 50; -fx-border-radius: 50;" text="Close Deal" textFill="WHITE">
+                  <JFXButton fx:id="closeAucBtn" contentDisplay="CENTER" layoutX="342.0" layoutY="20.0" onAction="#handleCloseDealBtnClick" prefHeight="38.0" prefWidth="160.0" style="-fx-background-color: #2dae95; -fx-background-radius: 50; -fx-border-radius: 50;" text="Close Deal" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
