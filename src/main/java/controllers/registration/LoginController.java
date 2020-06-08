@@ -1,4 +1,4 @@
-package controllers;
+package controllers.registration;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -24,7 +24,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.json.JSONException;
-import registration.User;
+import services.User;
 
 import java.io.IOException;
 import java.net.URL;

@@ -7,7 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import registration.FxmlLoader;
+import services.FxmlLoader;
 
 import javafx.event.ActionEvent;
 import java.net.URL;
@@ -54,6 +54,16 @@ public class HomeScreenClientController implements Initializable {
     {
         FxmlLoader object= new FxmlLoader();
         Pane view = center;
+        mainPane.setCenter(view);
+
+    }
+
+
+    @FXML
+    public void handleGenPrivAucButtonAction(ActionEvent event)
+    {
+        FxmlLoader object= new FxmlLoader();
+        Pane view = object.getPage("GeneratePrivateAucClient");
         mainPane.setCenter(view);
 
     }

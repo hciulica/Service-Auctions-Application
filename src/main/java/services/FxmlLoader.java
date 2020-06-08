@@ -1,4 +1,4 @@
-package registration;
+package services;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;

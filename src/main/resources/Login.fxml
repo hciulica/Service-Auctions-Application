@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="parentContainer" style="-fx-background-radius: 50;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
+<StackPane fx:id="parentContainer" style="-fx-background-radius: 50;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.registration.LoginController">
    <children>
       <AnchorPane id="AnchorPane" fx:id="anchorRoot" prefHeight="503.0" prefWidth="900.0" style="-fx-background-color: #fff;">
       

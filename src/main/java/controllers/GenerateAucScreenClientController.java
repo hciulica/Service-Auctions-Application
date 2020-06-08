@@ -17,7 +17,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import registration.Client;
+import services.Client;
 
 import java.io.IOException;
 import java.net.URL;

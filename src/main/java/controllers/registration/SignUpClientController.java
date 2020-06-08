@@ -1,4 +1,4 @@
-package controllers;
+package controllers.registration;
 
 import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
@@ -23,7 +23,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import registration.User;
+import services.User;
 
 import java.io.IOException;
 import java.net.URL;

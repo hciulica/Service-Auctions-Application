@@ -61,7 +61,7 @@
                   </TextArea>
                </children>
             </VBox>
-            <JFXButton fx:id="submitBtn" layoutX="81.0" layoutY="321.0" onAction="#handleSubmitButtonAction" prefHeight="38.0" prefWidth="122.0" style="-fx-background-color: #2dae95; -fx-background-radius: 50; -fx-border-radius: 50;" text="Submit" textFill="WHITE">
+            <JFXButton fx:id="submitBtn" layoutX="82.0" layoutY="319.0" onAction="#handleSubmitButtonAction" prefHeight="38.0" prefWidth="122.0" style="-fx-background-color: #2dae95; -fx-background-radius: 50; -fx-border-radius: 50;" text="Submit" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font></JFXButton>

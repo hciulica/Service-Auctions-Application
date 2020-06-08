@@ -1,4 +1,4 @@
-package registration;
+package services;
 
 import exception.EmailNotAvailable;
 import exception.EmptySignUpFieldException;
@@ -56,7 +56,8 @@ public class User {
         obj.put("Email:",email);
         obj.put("Phone Nr:", phoneNr);
         obj.put("Password:", encodePassword(key,initVector,password));
-        obj.put("Auction:", array);
+        obj.put("Public auction:", array);
+        obj.put("Private auction:", array);
         //obj.put("Password:",password);
         arrayClient.add(obj);
         try {
@@ -103,7 +104,7 @@ public class User {
 
         }
 
-        obj.put("First Name:", bussinesName);
+        obj.put("Business Name:", bussinesName);
         obj.put("Activity Field:", activityField);
         obj.put("Email:", email);
         obj.put("Phone Nr:", phoneNr);
