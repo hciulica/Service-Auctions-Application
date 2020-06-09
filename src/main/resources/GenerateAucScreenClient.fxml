@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="520.0" prefWidth="825.0" style="-fx-background-color: #F3F3F4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.GenerateAucScreenClientController">
+   <children>
+      <Pane layoutY="23.0" prefHeight="77.0" prefWidth="872.0" style="-fx-background-color: #fff;">
+         <children>
+            <Label layoutX="34.0" layoutY="27.0" text="Generate Public Auction" textFill="#000000cf">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow color="#dbdcdc" height="5.0" radius="3.25" width="10.0" />
+         </effect></Pane>
+      <FontAwesomeIconView fx:id="closeBtn2" glyphName="CLOSE" layoutX="846.0" layoutY="20.0" onMouseClicked="#handleCloseButtonAction" size="19" text="" />
+      <ScrollPane fx:id="address" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="14.0" layoutY="110.0" pannable="true" prefHeight="384.0" prefWidth="552.0" style="-fx-background-color: transparent;" vbarPolicy="ALWAYS">
+         <content>
+            <VBox fx:id="pinAuc" spacing="10.0">
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </VBox>
+         </content></ScrollPane>
+      <Pane layoutX="568.0" layoutY="110.0" prefHeight="384.0" prefWidth="285.0" style="-fx-background-color: #FFF; -fx-background-radius: 5;">
+         <effect>
+            <DropShadow color="#dbdcdc" height="9.53" radius="4.8" width="11.67" />
+         </effect>
+         <children>
+            <Label layoutX="14.0" layoutY="4.0" text="Add new Auction" textFill="#00000067" />
+            <VBox layoutX="14.0" layoutY="36.0" prefHeight="274.0" prefWidth="264.0">
+               <children>
+                  <TextField fx:id="title" prefHeight="37.0" prefWidth="214.0" promptText="Title" style="-fx-background-color: #f5f8f8; -fx-text-box-border: trasnparent;" stylesheets="@stylesheet.css">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <ComboBox fx:id="fieldBtn" prefHeight="38.0" prefWidth="345.0" promptText="Select activity field" style="-fx-background-color: #f5f8f8; -fx-text-color: #989898;" stylesheets="@stylesheet.css">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </ComboBox>
+                  <TextArea fx:id="description" prefHeight="200.0" prefWidth="200.0" promptText="Enter description" stylesheets="@stylesheet.css" wrapText="true">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </TextArea>
+               </children>
+            </VBox>
+            <JFXButton fx:id="submitBtn" layoutX="82.0" layoutY="319.0" onAction="#handleSubmitButtonAction" prefHeight="38.0" prefWidth="122.0" style="-fx-background-color: #2dae95; -fx-background-radius: 50; -fx-border-radius: 50;" text="Submit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></JFXButton>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

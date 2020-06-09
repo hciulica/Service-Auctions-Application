@@ -1,4 +1,4 @@
-package controllers;
+package controllers.registration;
 
 import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
@@ -23,7 +23,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import registration.User;
+import services.User;
 
 import java.io.IOException;
 import java.net.URL;
@@ -52,6 +52,7 @@ public class SignUpClientController implements Initializable {
     public PasswordField password;
     @FXML
     public JFXButton signUpBtn;
+
 
 
 
@@ -90,6 +91,7 @@ public class SignUpClientController implements Initializable {
             app_stage.hide();
             app_stage.setScene(home_page_scene);
             app_stage.show();
+            LoginController.email=email.getText();
         }
         catch (EmptySignUpFieldException e)
         {   //error if not all fields are completed

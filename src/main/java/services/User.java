@@ -1,4 +1,4 @@
-package registration;
+package services;
 
 import exception.EmailNotAvailable;
 import exception.EmptySignUpFieldException;
@@ -18,12 +18,13 @@ import java.util.Iterator;
 public class User {
     public static String key = "Jar12345Jar12345";
     public static String initVector = "RandomInitVector";
+    public static String name;
 
     //adds clients in json file: usersClient
     public static void addUserClient(String firstName, String lastName, String phoneNr, String email, String password) throws EmptySignUpFieldException,EmailNotAvailable {
 
         checkIfFieldsAreEmptyClient(firstName, lastName, email, phoneNr, password);
-
+        name=firstName+" "+lastName;
         JSONObject obj = new JSONObject();
         JSONArray arrayClient = new JSONArray();
         JSONParser jp = new JSONParser();
@@ -50,12 +51,14 @@ public class User {
             }
 
         }
-
+        JSONArray array= new JSONArray();
         obj.put("First Name:", firstName);
         obj.put("Last Name:", lastName);
         obj.put("Email:",email);
         obj.put("Phone Nr:", phoneNr);
         obj.put("Password:", encodePassword(key,initVector,password));
+        obj.put("Public auction:", array);
+        obj.put("Private auction:", array);
         //obj.put("Password:",password);
         arrayClient.add(obj);
         try {
@@ -75,6 +78,7 @@ public class User {
     public static void addUserProvider(String bussinesName, String activityField, String phoneNr, String email, String password) throws EmptySignUpFieldException, EmailNotAvailable{
 
         checkIfFieldsAreEmptyProv(bussinesName, activityField, phoneNr, email, password);
+        name=bussinesName;
         JSONObject obj = new JSONObject();
         JSONArray arrayProvider = new JSONArray();
         JSONParser jp = new JSONParser();
@@ -102,7 +106,7 @@ public class User {
 
         }
 
-        obj.put("First Name:", bussinesName);
+        obj.put("Business Name:", bussinesName);
         obj.put("Activity Field:", activityField);
         obj.put("Email:", email);
         obj.put("Phone Nr:", phoneNr);
@@ -181,6 +185,7 @@ public class User {
             if (obj.get("Email:").equals(email)&& obj.get("Password:").equals(encodePassword(key,initVector,password)))
             {
                 correctAccount = true;
+                name=(String)obj.get("First Name:")+" "+(String)obj.get("Last Name:");
                 return "Client";
             }
 
@@ -217,6 +222,7 @@ public class User {
             if (obj.get("Email:").equals(email)&& obj.get("Password:").equals(encodePassword(key,initVector,password)))
             {
                 correctAccount = true;
+                name=(String)obj.get("Business Name:");
                 return "Provider";
             }
 

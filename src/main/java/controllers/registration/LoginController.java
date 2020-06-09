@@ -1,4 +1,4 @@
-package controllers;
+package controllers.registration;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -24,7 +24,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.json.JSONException;
-import registration.User;
+import services.User;
 
 import java.io.IOException;
 import java.net.URL;
@@ -53,7 +53,7 @@ public class LoginController implements Initializable{
     @FXML
     public Label signInMessage;
 
-
+    public static String email;
     //verify user credentials
     @FXML
     public void handleLoginButtonAction(ActionEvent event) throws IOException, JSONException {
@@ -69,6 +69,7 @@ public class LoginController implements Initializable{
                app_stage.hide();
                app_stage.setScene(home_page_scene);
                app_stage.show();
+               email=txtEmail.getText();
 
            }
            //Verify if the user is a Provider
@@ -81,6 +82,8 @@ public class LoginController implements Initializable{
                 app_stage.hide();
                 app_stage.setScene(home_page_scene);
                 app_stage.show();
+                email=txtEmail.getText();
+
 
             }
             //if the user is none of the above throw exception
@@ -106,7 +109,6 @@ public class LoginController implements Initializable{
         //Load Signup Client Screen
         FXMLLoader loader= new FXMLLoader(getClass().getClassLoader().getResource("SignUpClient.fxml"));
         Parent root=loader.load();
-
         SignUpClientController scene2Controller = loader.getController();
         //make close button invisible
         scene2Controller.closeBtn.setVisible(false);
@@ -140,8 +142,6 @@ public class LoginController implements Initializable{
         {
             System.exit(0);
         }
-
-
 
     }
     @Override

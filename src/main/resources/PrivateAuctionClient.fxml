@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="dealRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="226.0" prefWidth="523.0" style="-fx-background-color: #fff; -fx-background-radius: 5; -fx-border-radius: 5;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PrivateAuctionClientController">
+    <padding>
+        <Insets bottom="5.0" top="5.0" />
+    </padding>
+    <effect>
+        <DropShadow color="#dbdcdc" height="10.0" radius="4.5" width="10.0" />
+    </effect>
+    <children>
+        <VBox prefHeight="227.0" prefWidth="516.0">
+            <children>
+                <HBox prefHeight="134.0" prefWidth="516.0">
+                    <children>
+                        <Pane prefHeight="143.0" prefWidth="193.0">
+                            <children>
+                                <Label fx:id="title" layoutX="14.0" layoutY="14.0" prefHeight="21.0" prefWidth="169.0" textFill="#2dad94" wrapText="true">
+                                    <font>
+                                        <Font name="System Bold" size="17.0" />
+                                    </font>
+                                </Label>
+                        <ScrollPane fx:id="inv" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="8.0" layoutY="48.0" pannable="true" prefHeight="79.0" prefWidth="178.0" style="-fx-background-color: #FFF;" vbarPolicy="ALWAYS">
+                           <content>
+                              <VBox fx:id="invited" alignment="TOP_CENTER" prefHeight="63.0" prefWidth="219.0" style="-fx-background-color: #FFF;">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
+                                 </padding>
+                                 <children>
+                                    <Label prefWidth="141.0" text="Invited Businesses" textFill="#0000008a">
+                                       <font>
+                                          <Font name="System Bold Italic" size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                            </children>
+                        </Pane>
+                        <Pane prefHeight="134.0" prefWidth="299.0">
+                            <children>
+                                <Label fx:id="description" layoutX="24.0" layoutY="7.0" prefHeight="123.0" prefWidth="292.0" textAlignment="CENTER" textFill="#000000b8" wrapText="true">
+                                    <font>
+                                        <Font name="System Bold Italic" size="15.0" />
+                                    </font>
+                                </Label>
+                                <Separator layoutX="-3.0" layoutY="1.0" orientation="VERTICAL" prefHeight="134.0" prefWidth="6.0">
+                                    <padding>
+                                        <Insets bottom="7.0" top="7.0" />
+                                    </padding>
+                                </Separator>
+                            </children>
+                        </Pane>
+                    </children>
+                </HBox>
+                <Separator prefWidth="200.0">
+                    <padding>
+                        <Insets left="15.0" right="15.0" />
+                    </padding>
+                </Separator>
+                <Pane prefHeight="86.0" prefWidth="516.0">
+                    <children>
+                        <ComboBox fx:id="fieldBtn" layoutX="23.0" layoutY="14.0" prefHeight="50.0" prefWidth="304.0" promptText="Choose an Offer" style="-fx-background-color: #f5f8f8; -fx-text-color: #989898;" stylesheets="@stylesheet.css" />
+                        <JFXButton fx:id="closeAucBtn" contentDisplay="CENTER" layoutX="342.0" layoutY="20.0" onAction="#handleCloseDealBtnClick" prefHeight="38.0" prefWidth="160.0" style="-fx-background-color: #2dae95; -fx-background-radius: 50; -fx-border-radius: 50;" text="Close Deal" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </JFXButton>
+                    </children>
+                </Pane>
+            </children>
+        </VBox>
+    </children>
+</Pane>
