@@ -2,14 +2,16 @@ package controllers;
 
 import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import services.FxmlLoader;
+import services.User;
 
-import javafx.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -30,6 +32,8 @@ public class HomeScreenClientController implements Initializable {
     public BorderPane mainPane;
     @FXML
     public Pane center;
+    @FXML
+    public Label client;
 
 
     @FXML
@@ -70,5 +74,6 @@ public class HomeScreenClientController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        client.setText(User.name);
     }
 }
