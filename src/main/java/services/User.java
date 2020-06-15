@@ -19,6 +19,7 @@ public class User {
     public static String key = "Jar12345Jar12345";
     public static String initVector = "RandomInitVector";
     public static String name;
+    public static String activityF;
 
     //adds clients in json file: usersClient
     public static void addUserClient(String firstName, String lastName, String phoneNr, String email, String password) throws EmptySignUpFieldException,EmailNotAvailable {
@@ -79,6 +80,7 @@ public class User {
 
         checkIfFieldsAreEmptyProv(bussinesName, activityField, phoneNr, email, password);
         name=bussinesName;
+        activityF = activityField;
         JSONObject obj = new JSONObject();
         JSONArray arrayProvider = new JSONArray();
         JSONParser jp = new JSONParser();
@@ -223,6 +225,7 @@ public class User {
             {
                 correctAccount = true;
                 name=(String)obj.get("Business Name:");
+                activityF = (String)obj.get("Activity Field:");
                 return "Provider";
             }
 

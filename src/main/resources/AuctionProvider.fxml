@@ -46,23 +46,18 @@
                                   <Font name="System Bold Italic" size="15.0" />
                               </font>
                           </Label>
-                          <Separator layoutX="282.0" layoutY="3.0" orientation="VERTICAL" prefHeight="158.0" prefWidth="1.0">
-                              <padding>
-                                  <Insets bottom="7.0" top="7.0" />
-                              </padding>
-                          </Separator>
                       </children>
                   </Pane>
               </children>
           </HBox>
-          <Pane layoutX="486.0" layoutY="10.0" prefHeight="145.0" prefWidth="292.0" style="-fx-background-color: #f5f8f8;">
+          <Pane layoutX="486.0" layoutY="10.0" prefHeight="145.0" prefWidth="292.0" style="-fx-background-color: #FFF;">
          <children>
-                  <JFXButton fx:id="closeAucBtn" contentDisplay="CENTER" layoutX="73.0" layoutY="80.0" onAction="#handleCloseDealBtnClick" prefHeight="51.0" prefWidth="147.0" style="-fx-background-color: #2dae95; -fx-background-radius: 50; -fx-border-radius: 50;" text="Submit" textFill="WHITE">
+                  <JFXButton fx:id="submitBtn" contentDisplay="CENTER" layoutX="83.0" layoutY="88.0" prefHeight="36.0" prefWidth="127.0" style="-fx-background-color: #2dae95; -fx-background-radius: 50; -fx-border-radius: 50;" text="Submit" textFill="WHITE">
                       <font>
                           <Font name="System Bold" size="15.0" />
                       </font>
                   </JFXButton>
-            <TextField fx:id="title1" layoutX="25.0" layoutY="14.0" prefHeight="51.0" prefWidth="244.0" promptText="Enter Price" style="-fx-background-color: #FFF; -fx-text-box-border: trasnparent;" stylesheets="@stylesheet.css" />
+            <TextField fx:id="title1" layoutX="24.0" layoutY="22.0" prefHeight="36.0" prefWidth="244.0" promptText="Enter Price" style="-fx-background-color: #f5f8f8; -fx-text-box-border: trasnparent;" stylesheets="@stylesheet.css" />
          </children>
           </Pane>
     </children>

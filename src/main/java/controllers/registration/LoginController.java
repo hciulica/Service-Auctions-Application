@@ -54,6 +54,8 @@ public class LoginController implements Initializable{
     public Label signInMessage;
 
     public static String email;
+
+
     //verify user credentials
     @FXML
     public void handleLoginButtonAction(ActionEvent event) throws IOException, JSONException {
