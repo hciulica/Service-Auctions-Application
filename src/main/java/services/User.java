@@ -112,7 +112,6 @@ public class User {
         obj.put("Activity Field:", activityField);
         obj.put("Email:", email);
         obj.put("Phone Nr:", phoneNr);
-        //obj.put("Password:", encodePassword(email, password));
         obj.put("Password:",encodePassword(key,initVector,password));
         obj.put("Submited Auction:",array);
         arrayProvider.add(obj);
