@@ -107,13 +107,14 @@ public class User {
             }
 
         }
-
+        JSONArray array = new JSONArray();
         obj.put("Business Name:", bussinesName);
         obj.put("Activity Field:", activityField);
         obj.put("Email:", email);
         obj.put("Phone Nr:", phoneNr);
         //obj.put("Password:", encodePassword(email, password));
         obj.put("Password:",encodePassword(key,initVector,password));
+        obj.put("Submited Auction:",array);
         arrayProvider.add(obj);
         try {
             File file = new File("src/main/resources/usersProvider.json");

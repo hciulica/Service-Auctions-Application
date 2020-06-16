@@ -44,11 +44,13 @@ public class Client {
 
                 //writes the auction inside de Auction array
                 JSONArray array2= new JSONArray();
+                JSONArray array = new JSONArray();
                 array2= (JSONArray)obj2.get("Public auction:");
                 obj2.remove("Public auction:");
                 obj3.put("Title:", title);
                 obj3.put("Activity Field:", activityField);
                 obj3.put("Description:", description);
+                obj3.put("Submited prices:",array);
                 auc=obj3;
                 array2.add(obj3);
                 obj2.put("Public auction:", array2);

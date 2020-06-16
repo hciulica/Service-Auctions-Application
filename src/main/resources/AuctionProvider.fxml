@@ -52,12 +52,17 @@
           </HBox>
           <Pane layoutX="486.0" layoutY="10.0" prefHeight="145.0" prefWidth="292.0" style="-fx-background-color: #FFF;">
          <children>
-                  <JFXButton fx:id="submitBtn" contentDisplay="CENTER" layoutX="83.0" layoutY="88.0" prefHeight="36.0" prefWidth="127.0" style="-fx-background-color: #2dae95; -fx-background-radius: 50; -fx-border-radius: 50;" text="Submit" textFill="WHITE">
+                  <JFXButton fx:id="submitBtn" contentDisplay="CENTER" layoutX="83.0" layoutY="95.0" onAction="#handleSubmitButtonAction" prefHeight="36.0" prefWidth="127.0" style="-fx-background-color: #2dae95; -fx-background-radius: 50; -fx-border-radius: 50;" text="Submit" textFill="WHITE">
                       <font>
                           <Font name="System Bold" size="15.0" />
                       </font>
                   </JFXButton>
-            <TextField fx:id="title1" layoutX="24.0" layoutY="22.0" prefHeight="36.0" prefWidth="244.0" promptText="Enter Price" style="-fx-background-color: #f5f8f8; -fx-text-box-border: trasnparent;" stylesheets="@stylesheet.css" />
+            <TextField fx:id="priceProv" layoutX="24.0" layoutY="22.0" prefHeight="36.0" prefWidth="244.0" promptText="Enter Price" style="-fx-background-color: #f5f8f8; -fx-text-box-border: trasnparent;" stylesheets="@stylesheet.css" />
+            <Label fx:id="message" layoutX="87.0" layoutY="60.0" prefHeight="26.0" prefWidth="118.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
          </children>
           </Pane>
     </children>

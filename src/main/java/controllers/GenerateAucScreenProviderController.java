@@ -33,28 +33,46 @@ public class GenerateAucScreenProviderController implements Initializable {
     }
     public void display()  {
         try {
-            JSONArray array=new JSONArray();
-            array= Service.displayProvAuc();
+            JSONArray array = new JSONArray();
+            JSONArray array2 = new JSONArray();
+            array = Service.displayProvAuc();
             Iterator<JSONObject> iterator = array.iterator();
-            while (iterator.hasNext())
-            {
+            while (iterator.hasNext()) {
                 JSONObject obj2 = iterator.next();
                 //if the status of the obj is closed it will not be displayed
+                if (!obj2.containsValue("closed")) {
+                    array2 = (JSONArray) obj2.get("Submited prices:");
+                    Iterator<JSONObject> iterator2 = array2.iterator();
+                    int k = 0;
 
-                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("AuctionProvider.fxml"));
-                    Pane root = null;
-                    root = loader.load();
-                    AuctionProviderController auction = loader.getController();
-                    auction.setParent(pinAuc);
-                    //sets the reference of the current obj in json so we can change the status if closed
-                    auction.currentAuction=obj2;
-                    auction.displayAuctions((String) obj2.get("Title:"), (String) obj2.get("Activity Field:"), (String) obj2.get("Description:"));
+                    for (int i = 0; i < array2.size() && k == 0; i++) {
 
-                    pinAuc.getChildren().add(root);
+                        JSONObject obj3 = (JSONObject) array2.get(i);
+                        System.out.println(obj3);
+                        System.out.println(User.name);
+                        if (obj3.containsKey(User.name)) {
+                            k = 1;
+                            break;
+                        }
+
+                    }
+                    if (k == 0) {
+                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("AuctionProvider.fxml"));
+                        Pane root = null;
+                        root = loader.load();
+                        AuctionProviderController auction = loader.getController();
+                        auction.setParent(pinAuc);
+                        //sets the reference of the current obj in json so we can change the status if closed
+                        auction.currentAuction = obj2;
+                        auction.displayAuctions((String) obj2.get("Title:"), (String) obj2.get("Activity Field:"), (String) obj2.get("Description:"));
+
+                        pinAuc.getChildren().add(root);
+                    }
+
+                }
+
 
             }
-
-
         }
         catch (IOException e)
         {
