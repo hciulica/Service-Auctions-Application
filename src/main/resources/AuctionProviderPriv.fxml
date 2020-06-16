@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="dealRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="164.0" prefWidth="792.0" style="-fx-background-color: #fff; -fx-background-radius: 5; -fx-border-radius: 5;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AuctionProviderPrivController">
+    <padding>
+        <Insets bottom="5.0" top="5.0" />
+    </padding>
+    <effect>
+        <DropShadow color="#dbdcdc" height="10.0" radius="4.5" width="10.0" />
+    </effect>
+    <children>
+        <HBox prefHeight="164.0" prefWidth="515.0">
+            <children>
+                <Pane prefHeight="134.0" prefWidth="193.0">
+                    <children>
+                        <Label fx:id="title" layoutX="14.0" layoutY="21.0" prefHeight="21.0" prefWidth="169.0" textFill="#2dad94" wrapText="true">
+                            <font>
+                                <Font name="System Bold" size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="activityDomain" layoutX="14.0" layoutY="46.0" prefHeight="43.0" prefWidth="169.0" textFill="#0000006a" wrapText="true">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane prefHeight="134.0" prefWidth="299.0">
+                    <children>
+                        <Separator orientation="VERTICAL" prefHeight="158.0" prefWidth="1.0">
+                            <padding>
+                                <Insets bottom="7.0" top="7.0" />
+                            </padding>
+                        </Separator>
+                        <Label fx:id="description" layoutX="14.0" layoutY="14.0" prefHeight="123.0" prefWidth="292.0" textAlignment="CENTER" textFill="#000000b8" wrapText="true">
+                            <font>
+                                <Font name="System Bold Italic" size="15.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+            </children>
+        </HBox>
+        <Pane layoutX="486.0" layoutY="10.0" prefHeight="145.0" prefWidth="292.0" style="-fx-background-color: #FFF;">
+            <children>
+                <JFXButton fx:id="submitBtn" contentDisplay="CENTER" layoutX="83.0" layoutY="95.0" onAction="#handleSubmitButtonAction" prefHeight="36.0" prefWidth="127.0" style="-fx-background-color: #2dae95; -fx-background-radius: 50; -fx-border-radius: 50;" text="Submit" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </JFXButton>
+                <TextField fx:id="priceProv" layoutX="24.0" layoutY="22.0" prefHeight="36.0" prefWidth="244.0" promptText="Enter Price" style="-fx-background-color: #f5f8f8; -fx-text-box-border: trasnparent;" stylesheets="@stylesheet.css" />
+                <Label fx:id="message" layoutX="87.0" layoutY="60.0" prefHeight="26.0" prefWidth="118.0">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+    </children>
+</Pane>

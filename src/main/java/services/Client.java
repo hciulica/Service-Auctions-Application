@@ -7,6 +7,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.Iterator;
 import java.util.List;
 
@@ -44,11 +45,13 @@ public class Client {
 
                 //writes the auction inside de Auction array
                 JSONArray array2= new JSONArray();
+                JSONArray array = new JSONArray();
                 array2= (JSONArray)obj2.get("Public auction:");
                 obj2.remove("Public auction:");
                 obj3.put("Title:", title);
                 obj3.put("Activity Field:", activityField);
                 obj3.put("Description:", description);
+                obj3.put("Submited prices:",array);
                 auc=obj3;
                 array2.add(obj3);
                 obj2.put("Public auction:", array2);
@@ -98,6 +101,7 @@ public class Client {
 
         JSONObject obj3 = new JSONObject();
         Iterator<JSONObject> iterator = arrayClient.iterator();
+        JSONArray array = new JSONArray();
         while (iterator.hasNext())
         {
             JSONObject obj2 = iterator.next();
@@ -111,6 +115,7 @@ public class Client {
                 obj3.put("Title:", title);
                 obj3.put("Invited Businesses:", invitedBusiness);
                 obj3.put("Description:", description);
+                obj3.put("Submited prices:",array);
                 auc=obj3;
                 array2.add(obj3);
                 obj2.put("Private auction:", array2);
@@ -340,6 +345,7 @@ public class Client {
 
 
     }
+
 
 }
 
