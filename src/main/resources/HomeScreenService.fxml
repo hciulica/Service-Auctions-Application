@@ -142,7 +142,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </JFXButton>
-                        <JFXButton graphicTextGap="15.0" prefHeight="63.0" prefWidth="246.0" stylesheets="@stylesheet.css" text="Bidding at private auction" textFill="#9ea8b9">
+                        <JFXButton fx:id="genAucPrivBtn" graphicTextGap="15.0" onAction="#handlePrivBtnAction" prefHeight="63.0" prefWidth="246.0" stylesheets="@stylesheet.css" text="Bidding at private auction" textFill="#9ea8b9">
                             <graphic>
                                 <FontAwesomeIconView fill="#9ea8b9" glyphName="ENVELOPE_ALT" size="17" />
                             </graphic>

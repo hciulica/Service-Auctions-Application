@@ -29,6 +29,8 @@ public class HomeScreenServiceController implements Initializable {
     @FXML
     public JFXButton homeScreenBtn;
     @FXML
+    public JFXButton genAucPrivBtn;
+    @FXML
     public void handleCloseButtonAction(MouseEvent event) {
         if (event.getSource() == closeBtn) {
             System.exit(0);
@@ -42,6 +44,12 @@ public class HomeScreenServiceController implements Initializable {
         Pane view = object.getPage("GenerateAucScreenProvider");
         mainPane.setCenter(view);
 
+    }
+    @FXML
+    public void handlePrivBtnAction(ActionEvent event){
+        FxmlLoader object= new FxmlLoader();
+        Pane view = object.getPage("GeneratePrivateAucProv");
+        mainPane.setCenter(view);
     }
     @FXML
     public void handleHomeScreenBtnAction(ActionEvent event)
