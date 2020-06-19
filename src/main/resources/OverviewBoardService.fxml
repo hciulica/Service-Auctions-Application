@@ -82,11 +82,30 @@
             </Label>
          </children>
       </Pane>
-      <ScrollPane fx:id="address" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="59.0" layoutY="268.0" pannable="true" prefHeight="221.0" prefWidth="737.0" style="-fx-background-color: transparent;" vbarPolicy="ALWAYS">
+      <Pane layoutX="59.0" layoutY="273.0" prefHeight="59.0" prefWidth="737.0" style="-fx-background-color: transparent;">
+         <children>
+            <Label layoutX="50.0" layoutY="17.0" text="Auction Title">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="342.0" layoutY="17.0" text="Price">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="578.0" layoutY="17.0" text="Status">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ScrollPane layoutX="58.0" layoutY="333.0" prefHeight="173.0" prefWidth="737.0" style="-fx-background-color: transparent;" vbarPolicy="ALWAYS">
          <content>
-            <VBox fx:id="pinAuc" prefHeight="219.0" prefWidth="730.0" spacing="10.0">
+            <VBox fx:id="pinAuc" spacing="10.0">
                <padding>
-                  <Insets right="10.0" />
+                  <Insets right="3.0" />
                </padding>
             </VBox>
          </content>

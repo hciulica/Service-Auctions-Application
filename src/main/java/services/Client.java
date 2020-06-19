@@ -254,6 +254,30 @@ public class Client {
         Iterator<JSONObject> iterator = arrayClient.iterator();
         JSONArray win=new JSONArray();
         JSONObject obj4= new JSONObject();
+        String s= new String();
+
+
+        while (iterator.hasNext())
+        {
+            JSONObject obj2 = iterator.next();
+
+            if (obj2.get("Email:").equals(LoginController.email))
+            {
+
+
+                d= (JSONArray) obj2.get("Public auction:");
+                JSONObject obj3 = obj;
+                d.remove(obj);
+                obj3.put("Status:","closed");
+                s=(String) obj3.get("Title:");
+                if(winner!=null) {
+                    obj3.put("Winner:", win);
+                }
+                d.add(obj3);
+
+            }
+        }
+
         if(winner!=null) {
             int index = 0;
             for (String word : winner.split(" ")) {
@@ -269,28 +293,9 @@ public class Client {
 
             }
             win.add(obj4);
-            submit(obj4);
+            System.out.println(obj4);
+            submit(obj4,s);
             closeed(obj);
-        }
-
-        while (iterator.hasNext())
-        {
-            JSONObject obj2 = iterator.next();
-
-            if (obj2.get("Email:").equals(LoginController.email))
-            {
-
-
-                d= (JSONArray) obj2.get("Public auction:");
-                JSONObject obj3 = obj;
-                d.remove(obj);
-                obj3.put("Status:","closed");
-                if(winner!=null) {
-                    obj3.put("Winner:", win);
-                }
-                d.add(obj3);
-
-            }
         }
 
 
@@ -330,28 +335,11 @@ public class Client {
             e.printStackTrace();
         }
         JSONArray d = new JSONArray();
-
+        String s=new String();
         Iterator<JSONObject> iterator = arrayClient.iterator();
         JSONArray win=new JSONArray();
         JSONObject obj4= new JSONObject();
-        if(winner!=null) {
-            int index = 0;
-            for (String word : winner.split(" ")) {
-                if (index == 0) {
-                    obj4.put("Name:", word);
 
-                }
-                if (index == 2) {
-                    obj4.put("Price:", word);
-
-                }
-                index++;
-
-            }
-            win.add(obj4);
-            submit(obj4);
-            closeed(obj);
-        }
         while (iterator.hasNext())
         {
             JSONObject obj2 = iterator.next();
@@ -364,14 +352,30 @@ public class Client {
                 JSONObject obj3 = obj;
                 d.remove(obj);
                 obj3.put("Status:","closed");
+                s=(String) obj3.get("Title:");
+
                 if(winner!=null) {
                     obj3.put("Winner:", win);
                 }
                 d.add(obj3);
+            }
+            if(winner!=null) {
+                int index = 0;
+                for (String word : winner.split(" ")) {
+                    if (index == 0) {
+                        obj4.put("Name:", word);
 
+                    }
+                    if (index == 2) {
+                        obj4.put("Price:", word);
 
+                    }
+                    index++;
 
-
+                }
+                win.add(obj4);
+                submit(obj4,s);
+                closeed(obj);
             }
 
         }
@@ -390,7 +394,7 @@ public class Client {
 
     }
 
-    public static void submit(JSONObject obj4)
+    public static void submit(JSONObject obj4,String title)
     {
         JSONParser parser = new JSONParser();
         Object p2;
@@ -420,6 +424,7 @@ public class Client {
                 obj2.remove("Wins:");
                 obj3.put("Client:", User.name);
                 obj3.put("Price:", obj4.get("Price:"));
+                obj3.put("Title:",title);
                 array2.add(obj3);
                 obj2.put("Wins:", array2);
                 arrayProvider.add(obj2);

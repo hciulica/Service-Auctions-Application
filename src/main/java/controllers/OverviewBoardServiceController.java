@@ -57,9 +57,16 @@ public class OverviewBoardServiceController  implements Initializable {
                     String status="active";
                     if(obj2.containsKey("Status:"))
                     {
-                       status="closed" ;
+                        status="closed" ;
+                        auction.setFields((String) obj2.get("Title:"), (String) obj2.get("Submited prices:"), status);
                     }
-                    auction.setFields((String) obj2.get("Title:"), (String) obj2.get("Submited prices:"), status);
+
+                    if(obj2.containsKey("Client:"))
+                    {
+                        status="win" ;
+                        auction.setFields((String) obj2.get("Title:"), (String) obj2.get("Price:"), status);
+                    }
+                    else auction.setFields((String) obj2.get("Title:"), (String) obj2.get("Submited prices:"), status);
 
                     pinAuc.getChildren().add(root);
                 }

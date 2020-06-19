@@ -25,7 +25,7 @@ public class OverviewServiceController implements Initializable {
     public void setFields(String title,String price, String status)
     {
         this.title.setText(title);
-        this.price.setText(price);
+        this.price.setText(price+ " RON");
         this.status.setText(status);
     }
     void setParent(VBox parent) {

@@ -399,9 +399,29 @@ private static JSONObject submitedAuc = new JSONObject();
 
             if (obj2.get("Email:").equals(LoginController.email))
             {
-
+                JSONArray arr=(JSONArray)obj2.get("Wins:");
                 //takes the right vector that must be displayed
                 display= (JSONArray) obj2.get("Submited Auction:");
+                Iterator<JSONObject> iterator2 = arr.iterator();
+                Iterator<JSONObject> iterator3 = display.iterator();
+                while(iterator3.hasNext())
+                {
+                    JSONObject object2 = iterator3.next();
+                    while (iterator2.hasNext())
+                    {
+                       //if an auction is closed but also won by the provider it should be only the won one in the array
+                        JSONObject object = iterator2.next();
+                        if(object2.get("Title:").equals(object.get("Title:")))
+                        {
+                            display.remove(object2);
+                        }
+                        display.add(object);
+
+                    }
+                    break;
+                }
+
+
 
 
             }

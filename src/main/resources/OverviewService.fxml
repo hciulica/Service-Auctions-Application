@@ -4,18 +4,18 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="dealRoot" prefHeight="61.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OverviewServiceController">
+<Pane fx:id="dealRoot" prefHeight="61.0" prefWidth="696.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OverviewServiceController">
    <children>
-      <Label fx:id="status" alignment="CENTER" layoutX="565.0" layoutY="10.0" prefHeight="27.0" prefWidth="108.0" style="-fx-border-color: #2dae95; -fx-border-radius: 30; -fx-border-width: 3;" text="Active" />
-      <Label fx:id="price" layoutX="358.0" layoutY="10.0" text="300 RON">
+      <Label fx:id="title" layoutX="61.0" layoutY="15.0" text="Interior Designer" textFill="#000000a6" wrapText="true">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="title" layoutX="75.0" layoutY="11.0" text="Interior Designer" wrapText="true">
+      <Label fx:id="price" layoutX="327.0" layoutY="15.0" prefHeight="22.0" prefWidth="77.0" text="300 RON" textFill="#000000a6">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
+      <Label fx:id="status" alignment="CENTER" layoutX="541.0" layoutY="14.0" prefHeight="27.0" prefWidth="108.0" style="-fx-border-color: #2dae95; -fx-border-radius: 30; -fx-border-width: 3;" text="Active" textFill="#000000c4" />
    </children>
 </Pane>
