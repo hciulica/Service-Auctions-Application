@@ -150,7 +150,7 @@
                                 <Font name="System Bold" size="14.0" />
                             </font>
                         </JFXButton>
-                        <JFXButton graphicTextGap="15.0" prefHeight="67.0" prefWidth="243.0" stylesheets="@stylesheet.css" text="Overview Board" textFill="#9ea8b9">
+                        <JFXButton fx:id="overviewBtn" graphicTextGap="15.0" onAction="#handleOverviewBtnAction" prefHeight="67.0" prefWidth="243.0" stylesheets="@stylesheet.css" text="Overview Board" textFill="#9ea8b9">
                             <graphic>
                                 <FontAwesomeIconView fill="#9ea8b9" glyphName="CLIPBOARD" size="17" />
                             </graphic>

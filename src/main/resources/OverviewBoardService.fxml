@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="520.0" prefWidth="825.0" style="-fx-background-color: #F3F3F4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OverviewBoardServiceController">
+    <children>
+        <Pane layoutY="23.0" prefHeight="77.0" prefWidth="872.0" style="-fx-background-color: #fff;">
+            <children>
+                <Label layoutX="34.0" layoutY="27.0" text="Overview Board" textFill="#000000cf">
+                    <font>
+                        <Font name="System Bold" size="21.0" />
+                    </font>
+                </Label>
+            </children>
+            <effect>
+                <DropShadow color="#dbdcdc" height="5.0" radius="3.25" width="10.0" />
+            </effect></Pane>
+        <FontAwesomeIconView fx:id="closeBtn2" glyphName="CLOSE" layoutX="846.0" layoutY="20.0" onMouseClicked="#handleCloseButtonAction" size="19" text="" />
+      <Pane layoutX="59.0" layoutY="121.0" prefHeight="130.0" prefWidth="204.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: e76f51;">
+         <children>
+            <Label layoutX="22.0" layoutY="50.0" text="Total Profit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="26.0" fitWidth="36.0" layoutX="22.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/coins.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="profit" layoutX="22.0" layoutY="81.0" text="100" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane layoutX="324.0" layoutY="121.0" prefHeight="130.0" prefWidth="204.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #2dae95;">
+         <children>
+            <Label layoutX="22.0" layoutY="50.0" text="Auctions in Progress" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="22.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/loading.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="progress" layoutX="22.0" layoutY="83.0" text="3" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="589.0" layoutY="121.0" prefHeight="130.0" prefWidth="204.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #264653;">
+         <children>
+            <Label layoutX="22.0" layoutY="50.0" text="Total Winnings" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="31.0" fitWidth="35.0" layoutX="16.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/win.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="winnings" layoutX="22.0" layoutY="83.0" text="3" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ScrollPane fx:id="address" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="59.0" layoutY="268.0" pannable="true" prefHeight="221.0" prefWidth="737.0" style="-fx-background-color: transparent;" vbarPolicy="ALWAYS">
+         <content>
+            <VBox fx:id="pinAuc" prefHeight="219.0" prefWidth="730.0" spacing="10.0">
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+    </children>
+</AnchorPane>

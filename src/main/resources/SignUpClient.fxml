@@ -85,7 +85,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
-      <Label fx:id="signUpMessage" layoutX="134.0" layoutY="354.0" prefHeight="37.0" prefWidth="275.0" textFill="#fc0000">
+      <Label fx:id="signUpMessage" alignment="CENTER" layoutX="134.0" layoutY="354.0" prefHeight="37.0" prefWidth="275.0" textFill="#fc0000">
          <font>
             <Font size="18.0" />
          </font>

@@ -1,7 +1,7 @@
 package services;
 
 import exception.EmailNotAvailable;
-import exception.EmptySignUpFieldException;
+import exception.EmptyFieldException;
 import exception.IncorrectMailOrPassException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -22,7 +22,7 @@ public class User {
     public static String activityF;
 
     //adds clients in json file: usersClient
-    public static void addUserClient(String firstName, String lastName, String phoneNr, String email, String password) throws EmptySignUpFieldException,EmailNotAvailable {
+    public static void addUserClient(String firstName, String lastName, String phoneNr, String email, String password) throws EmptyFieldException,EmailNotAvailable {
 
         checkIfFieldsAreEmptyClient(firstName, lastName, email, phoneNr, password);
         name=firstName+" "+lastName;
@@ -71,12 +71,12 @@ public class User {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(obj);
+
 
     }
 
     //adds clients in json file:usersProvider
-    public static void addUserProvider(String bussinesName, String activityField, String phoneNr, String email, String password) throws EmptySignUpFieldException, EmailNotAvailable{
+    public static void addUserProvider(String bussinesName, String activityField, String phoneNr, String email, String password) throws EmptyFieldException, EmailNotAvailable{
 
         checkIfFieldsAreEmptyProv(bussinesName, activityField, phoneNr, email, password);
         name=bussinesName;
@@ -114,6 +114,7 @@ public class User {
         obj.put("Phone Nr:", phoneNr);
         obj.put("Password:",encodePassword(key,initVector,password));
         obj.put("Submited Auction:",array);
+        obj.put("Wins:",array);
         arrayProvider.add(obj);
         try {
             File file = new File("src/main/resources/usersProvider.json");
@@ -124,23 +125,21 @@ public class User {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(obj);
-
     }
 
 
     //checks if any fields are empty for Client
-    private static void checkIfFieldsAreEmptyClient(String firstName, String lastName, String email, String phoneNr, String password) throws EmptySignUpFieldException {
+    private static void checkIfFieldsAreEmptyClient(String firstName, String lastName, String email, String phoneNr, String password) throws EmptyFieldException {
 
         if (firstName.isEmpty() | lastName.isEmpty() | email.isEmpty() | phoneNr.isEmpty() | password.isEmpty())
-            throw new EmptySignUpFieldException();
+            throw new EmptyFieldException();
     }
 
     //checks if any fields are empty for Provider
-    private static void checkIfFieldsAreEmptyProv(String bussinesName, String activityField, String phoneNr, String email, String password) throws EmptySignUpFieldException {
+    private static void checkIfFieldsAreEmptyProv(String bussinesName, String activityField, String phoneNr, String email, String password) throws EmptyFieldException {
 
         if (bussinesName.isEmpty() | activityField == null | email.isEmpty() | phoneNr.isEmpty() | password.isEmpty())
-            throw new EmptySignUpFieldException();
+            throw new EmptyFieldException();
     }
 
   //encrypts passwords
