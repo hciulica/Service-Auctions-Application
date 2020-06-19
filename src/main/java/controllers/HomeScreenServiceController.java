@@ -31,6 +31,8 @@ public class HomeScreenServiceController implements Initializable {
     @FXML
     public JFXButton genAucPrivBtn;
     @FXML
+    public JFXButton overviewBtn;
+    @FXML
     public void handleCloseButtonAction(MouseEvent event) {
         if (event.getSource() == closeBtn) {
             System.exit(0);
@@ -58,6 +60,14 @@ public class HomeScreenServiceController implements Initializable {
         Pane view = center;
         mainPane.setCenter(view);
 
+    }
+
+    @FXML
+    public void handleOverviewBtnAction(ActionEvent event)
+    {
+        FxmlLoader object= new FxmlLoader();
+        Pane view = object.getPage("OverviewBoardService");
+        mainPane.setCenter(view);
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {

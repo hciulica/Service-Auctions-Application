@@ -3,6 +3,7 @@ package controllers;
 import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import exception.BusinessNotExistException;
+import exception.EmptyFieldException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,6 +44,8 @@ public class GeneratePrivateAucClientController implements Initializable {
     public JFXButton inviteBtn;
     @FXML
     public Label error;
+    @FXML
+    public Label message;
     private List<String> invitedBusiness=new ArrayList<>();
 
     @FXML
@@ -79,7 +82,9 @@ public class GeneratePrivateAucClientController implements Initializable {
     {
 
         try {
-
+            if(title.getText().isEmpty()|invitedBusiness.isEmpty()| description.getText().isEmpty()) {
+                throw new EmptyFieldException();
+            }
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("PrivateAuctionClient.fxml"));
             Pane root = null;
             root = loader.load();
@@ -89,6 +94,11 @@ public class GeneratePrivateAucClientController implements Initializable {
             auction.setParent(pinAuc);
             auction.setFields(title.getText(),invitedBusiness, description.getText());
 
+            //clear the vbox with the invited businesses
+            invited.getChildren().clear();
+            invitedBusiness=null;title.clear();
+            description.clear();
+            search.clear();
             pinAuc.getChildren().add(root);
 
 
@@ -97,6 +107,11 @@ public class GeneratePrivateAucClientController implements Initializable {
         catch (IOException e)
         {
             e.printStackTrace();
+        }
+
+        catch(EmptyFieldException e)
+        {
+            message.setText(e.getMessage());
         }
 
     }
@@ -118,6 +133,7 @@ public class GeneratePrivateAucClientController implements Initializable {
                     auction.setParent(pinAuc);
                     //sets the reference of the current obj in json so we can change the status if closed
                     auction.currentAuction=obj2;
+                    auction.displayPrice(obj2);
                     List<String> list = (List<String>) obj2.get("Invited Businesses:");
                     auction.displayAuctions((String) obj2.get("Title:"),list, (String) obj2.get("Description:"));
                     pinAuc.getChildren().add(root);

@@ -60,7 +60,7 @@
             </Separator>
             <Pane prefHeight="86.0" prefWidth="516.0">
                <children>
-                  <ComboBox fx:id="fieldBtn" layoutX="23.0" layoutY="14.0" prefHeight="50.0" prefWidth="304.0" promptText="Choose an Offer" style="-fx-background-color: #f5f8f8; -fx-text-color: #989898;" stylesheets="@stylesheet.css" />
+                  <ComboBox fx:id="priceBtn" layoutX="23.0" layoutY="14.0" prefHeight="50.0" prefWidth="304.0" promptText="Choose an Offer" style="-fx-background-color: #f5f8f8; -fx-text-color: #989898;" stylesheets="@stylesheet.css" />
                   <JFXButton fx:id="closeAucBtn" contentDisplay="CENTER" layoutX="342.0" layoutY="20.0" onAction="#handleCloseDealBtnClick" prefHeight="38.0" prefWidth="160.0" style="-fx-background-color: #2dae95; -fx-background-radius: 50; -fx-border-radius: 50;" text="Close Deal" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />

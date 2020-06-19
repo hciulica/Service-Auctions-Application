@@ -2,16 +2,14 @@ package controllers;
 
 import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import exception.EmptyFieldException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -38,6 +36,8 @@ public class GenerateAucScreenClientController implements Initializable {
     public TextField title;
     @FXML
     public TextArea description;
+    @FXML
+    public Label message;
 
 
     ObservableList<String> activityField= FXCollections.
@@ -68,7 +68,10 @@ public class GenerateAucScreenClientController implements Initializable {
                 pinAuc.getChildren().add(nodes[i]);*/
 
         try {
-
+            if(title.getText().isEmpty()|fieldBtn.getSelectionModel().isEmpty()| description.getText().isEmpty())
+            {
+                throw new EmptyFieldException();
+            }
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("AuctionClient.fxml"));
             Pane root = null;
             root = loader.load();
@@ -78,6 +81,10 @@ public class GenerateAucScreenClientController implements Initializable {
             auction.setParent(pinAuc);
             auction.setFields(title.getText(),(String) fieldBtn.getValue(), description.getText());
 
+            //clear text Fields after submit
+            title.clear();
+            description.clear();
+
             pinAuc.getChildren().add(root);
 
 
@@ -86,6 +93,11 @@ public class GenerateAucScreenClientController implements Initializable {
              catch (IOException e)
             {
                 e.printStackTrace();
+            }
+
+            catch(EmptyFieldException e)
+            {
+                message.setText(e.getMessage());
             }
 
     }
@@ -107,6 +119,7 @@ public class GenerateAucScreenClientController implements Initializable {
                     auction.setParent(pinAuc);
                     //sets the reference of the current obj in json so we can change the status if closed
                     auction.currentAuction=obj2;
+                    auction.displayPrice(obj2);
                     auction.displayAuctions((String) obj2.get("Title:"), (String) obj2.get("Activity Field:"), (String) obj2.get("Description:"));
 
                     pinAuc.getChildren().add(root);

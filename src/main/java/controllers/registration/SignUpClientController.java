@@ -3,7 +3,7 @@ package controllers.registration;
 import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import exception.EmailNotAvailable;
-import exception.EmptySignUpFieldException;
+import exception.EmptyFieldException;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -93,7 +93,7 @@ public class SignUpClientController implements Initializable {
             app_stage.show();
             LoginController.email=email.getText();
         }
-        catch (EmptySignUpFieldException e)
+        catch (EmptyFieldException e)
         {   //error if not all fields are completed
             signUpMessage.setText(e.getMessage());
         }

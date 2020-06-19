@@ -1,6 +1,7 @@
 package services;
 
 import controllers.registration.LoginController;
+import javafx.scene.control.Label;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -302,5 +303,131 @@ private static JSONObject submitedAuc = new JSONObject();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void overView(Label prof,Label progress, Label winnings)
+    {
+        JSONParser parser = new JSONParser();
+        Object p;
+        JSONArray arrayClient = new JSONArray();
+        try {
+            FileReader readFile = new FileReader("src/main/resources/usersProvider.json");
+            BufferedReader read = new BufferedReader(readFile);
+            p = parser.parse(read);
+            if (p instanceof JSONArray) {
+                arrayClient = (JSONArray) p;
+            }
+        } catch (ParseException parseException) {
+            parseException.printStackTrace();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+
+        Iterator<JSONObject> iterator = arrayClient.iterator();
+
+
+        Integer profit=0;
+        Integer prog=0;
+        Integer wins=0;
+
+        while (iterator.hasNext())
+        {
+            JSONObject obj2 = iterator.next();
+            JSONArray array2= new JSONArray();
+            JSONArray array3= new JSONArray();
+            if(obj2.get("Business Name:").equals(User.name)) {
+                //profit
+                array2 = (JSONArray) obj2.get("Wins:");
+                wins=array2.size();
+                Iterator<JSONObject> iterator2 = array2.iterator();
+                while(iterator2.hasNext())
+                {
+                    JSONObject obj3= iterator2.next();
+                    profit=profit+ Integer.parseInt((String)obj3.get("Price:"));
+
+                }
+                //auction in progress
+                array3= (JSONArray) obj2.get("Submited Auction:");
+                Iterator<JSONObject> iterator3 = array3.iterator();
+                while(iterator3.hasNext())
+                {
+                    JSONObject obj3= iterator3.next();
+                    if(!obj3.containsKey("Status:")){
+                        prog++;
+                    }
+
+                }
+
+
+            }
+
+        }
+
+        prof.setText(Integer.toString(profit)+ " RON");
+        progress.setText(Integer.toString(prog));
+        winnings.setText(Integer.toString(wins));
+    }
+
+    public static JSONArray displayOverview()
+    {
+        JSONArray arrayClient = new JSONArray();
+        JSONParser jp = new JSONParser();
+        Object p;
+        try {
+            FileReader readFile = new FileReader("src/main/resources/usersProvider.json");
+            BufferedReader read = new BufferedReader(readFile);
+            p = jp.parse(read);
+            if (p instanceof JSONArray) {
+                arrayClient = (JSONArray) p;
+            }
+
+
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        JSONObject obj3 = new JSONObject();
+        Iterator<JSONObject> iterator = arrayClient.iterator();
+        JSONArray display = new JSONArray();
+        while (iterator.hasNext())
+        {
+            JSONObject obj2 = iterator.next();
+
+            if (obj2.get("Email:").equals(LoginController.email))
+            {
+                JSONArray arr=(JSONArray)obj2.get("Wins:");
+                //takes the right vector that must be displayed
+                display= (JSONArray) obj2.get("Submited Auction:");
+                Iterator<JSONObject> iterator2 = arr.iterator();
+                Iterator<JSONObject> iterator3 = display.iterator();
+                while(iterator3.hasNext())
+                {
+                    JSONObject object2 = iterator3.next();
+                    while (iterator2.hasNext())
+                    {
+                       //if an auction is closed but also won by the provider it should be only the won one in the array
+                        JSONObject object = iterator2.next();
+                        if(object2.get("Title:").equals(object.get("Title:")))
+                        {
+                            display.remove(object2);
+                        }
+                        display.add(object);
+
+                    }
+                    break;
+                }
+
+
+
+
+            }
+
+        }
+        return display;
+
     }
 }

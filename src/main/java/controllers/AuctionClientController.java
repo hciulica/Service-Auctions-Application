@@ -1,15 +1,21 @@
 package controllers;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import services.Client;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class AuctionClientController implements Initializable {
@@ -25,6 +31,9 @@ public class AuctionClientController implements Initializable {
 
     @FXML
     private Pane dealRoot;
+    @FXML
+    public ComboBox  <String> priceBtn;
+    List<String> listPrice= new ArrayList<String>();
 
     JSONObject currentAuction;
 
@@ -50,15 +59,52 @@ public class AuctionClientController implements Initializable {
     public void handleCloseDealBtnClick() {
         parent.getChildren().remove(dealRoot);
         //calls the close method from client
-        Client.close(currentAuction);
+
+        Client.close(currentAuction,(String)priceBtn.getValue());
     }
 
     void setParent(VBox parent) {
         this.parent = parent;
     }
 
+    //returns the JSONObject as a string (key+Values)
+    public static String getJsonObject(JSONObject jsonObj) {
+       String s=new String ();
+        for (Object key : jsonObj.keySet()) {
+            String keyStr = (String) key;
+            Object keyvalue = jsonObj.get(keyStr);
+
+            if (!(keyvalue instanceof JSONObject)) {
+                s=(keyStr + " - " + keyvalue + " RON");
+            }
+            if (keyvalue instanceof JSONObject) {
+                getJsonObject((JSONObject) keyvalue);
+            }
+        }
+        return s;
+    }
+
+    //display all the submitted prices in the combobox
+    void displayPrice(JSONObject price)
+    {
+
+        JSONObject obj3 = new JSONObject();
+        JSONArray prices= (JSONArray) price.get("Submited prices:");
+        Iterator<JSONObject> iterator = prices.iterator();
+        while (iterator.hasNext())
+        {
+
+            obj3=iterator.next();
+            listPrice.add(getJsonObject(obj3));
+            priceBtn.setItems(FXCollections.observableArrayList(listPrice));
+
+
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
     }
 
 }
