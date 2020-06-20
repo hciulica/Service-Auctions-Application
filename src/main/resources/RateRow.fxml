@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
+
+<Pane fx:id="dealRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RateRowController">
+   <children>
+      <JFXButton fx:id="btnRate" contentDisplay="RIGHT" graphicTextGap="100.0" layoutY="-5.0" onAction="#handleBtnRateAction" prefHeight="62.0" prefWidth="530.0" text="Button" textFill="#000000a6">
+         <graphic>
+            <Rating fx:id="star" disable="true" partialRating="true" prefHeight="24.0" prefWidth="160.0" rating="0.0" />
+         </graphic>
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </JFXButton>
+   </children>
+</Pane>

@@ -7,6 +7,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -494,6 +495,167 @@ public class Client {
             e.printStackTrace();
         }
 
+    }
+
+    public static List<String> rating() {
+        JSONArray arrayClient = new JSONArray();
+        JSONParser jp = new JSONParser();
+        Object p;
+        try {
+            FileReader readFile = new FileReader("src/main/resources/usersClient.json");
+            BufferedReader read = new BufferedReader(readFile);
+            p = jp.parse(read);
+            if (p instanceof JSONArray) {
+                arrayClient = (JSONArray) p;
+            }
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        JSONObject obj3 = new JSONObject();
+        JSONObject obj5 = new JSONObject();
+        List<String> lista = new ArrayList<>();
+        Iterator<JSONObject> iterator = arrayClient.iterator();
+        JSONArray display = new JSONArray();
+        while (iterator.hasNext()) {
+            JSONObject obj2 = iterator.next();
+
+            if (obj2.get("Email:").equals(LoginController.email)) {
+
+                JSONArray arr = new JSONArray();
+                arr = (JSONArray) obj2.get("Public auction:");
+                Iterator<JSONObject> iterator2 = arr.iterator();
+                while (iterator2.hasNext()) {
+                    JSONArray arr2 = new JSONArray();
+                    obj3 = iterator2.next();
+                    arr2 = (JSONArray) obj3.get("Winner:");
+                    //arr2.get(0);
+                    JSONObject obj4 = (JSONObject) arr2.get(0);
+                    if (!lista.contains((String) obj4.get("Name:"))) {
+                        lista.add((String) obj4.get("Name:"));
+                    }
+
+
+                }
+                //takes the right vector that must be displayed
+
+                JSONArray arr1 = new JSONArray();
+                arr1 = (JSONArray) obj2.get("Private auction:");
+                Iterator<JSONObject> iterator3 = arr1.iterator();
+                while (iterator3.hasNext()) {
+                    JSONArray arr3 = new JSONArray();
+                    obj5 = iterator3.next();
+                    arr3 = (JSONArray) obj5.get("Winner:");
+                    //arr2.get(0);
+                    JSONObject obj6 = (JSONObject) arr3.get(0);
+                    if (!lista.contains((String) obj6.get("Name:"))) {
+                        lista.add((String) obj6.get("Name:"));
+                    }
+
+                }
+
+            }
+        }
+        System.out.println(lista);
+        return lista;
+    }
+    public static JSONArray compare(){
+        JSONArray arrayClient = new JSONArray();
+        JSONParser jp = new JSONParser();
+        Object p;
+        try {
+            FileReader readFile = new FileReader("src/main/resources/usersProvider.json");
+            BufferedReader read = new BufferedReader(readFile);
+            p = jp.parse(read);
+            if (p instanceof JSONArray) {
+                arrayClient = (JSONArray) p;
+            }
+
+
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        JSONObject obj3 = new JSONObject();
+        List<String> lista = new ArrayList<>();
+        lista = rating();
+
+        Iterator<JSONObject> iterator = arrayClient.iterator();
+        JSONArray display = new JSONArray();
+
+       while (iterator.hasNext())
+        {
+            JSONObject obj2 = iterator.next();
+            for(int i=0 ;i<lista.size();i++){
+                if(obj2.get("Business Name:").equals(lista.get(i))){
+                    JSONObject obj4 = new JSONObject();
+                    obj4.put("Name:",obj2.get("Business Name:"));
+                    obj4.put("Rate:", obj2.get("Rate:"));
+
+                    display.add(obj4);
+                    System.out.println(obj4);
+                }
+            }
+
+
+        }
+    return display;
+    }
+    public static void submitRate(double value,String name){
+        JSONParser parser = new JSONParser();
+        Object p;
+        JSONArray arrayClient = new JSONArray();
+        try {
+            FileReader readFile = new FileReader("src/main/resources/usersProvider.json");
+            BufferedReader read = new BufferedReader(readFile);
+            p = parser.parse(read);
+            if (p instanceof JSONArray) {
+                arrayClient = (JSONArray) p;
+            }
+        } catch (ParseException parseException) {
+            parseException.printStackTrace();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+
+        Iterator<JSONObject> iterator = arrayClient.iterator();
+
+
+
+        JSONObject obj3= new JSONObject();
+        double d=value;
+        while (iterator.hasNext())
+        {
+
+            JSONObject obj2 = iterator.next();
+            if(obj2.get("Business Name:").equals(name)){
+            if(!obj2.get("Rate:").equals(0.0)) {
+                d = (d + (double) obj2.get("Rate:")) / 2;
+            }
+
+
+                System.out.println(d);
+            obj2.remove("Rate:");
+            obj2.put("Rate:",d);
+            }
+        }
+        try {
+            File file = new File("src/main/resources/usersProvider.json");
+            FileWriter fisier = new FileWriter(file.getAbsoluteFile());
+            fisier.write(arrayClient.toJSONString());
+            fisier.flush();
+            fisier.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

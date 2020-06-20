@@ -18,12 +18,6 @@
     -fx-text-fill:  #8cbec9;
 }
 
-.button:hover
-{
- -fx-background-color: #283847;
- -fx-text-fill: #FFF;
-
-}
 
 .button:hover .glyph-icon
 {
@@ -31,7 +25,31 @@
 
 
 }
+#homeScreenBtn: hover{
+ -fx-text-fill: #FFF;
+-fx-background-color: #283847;
+}
 
+#genAucBtn: hover{
+ -fx-text-fill: #FFF;
+-fx-background-color: #283847;
+}
+#genAucPrivBtn: hover{
+-fx-text-fill: #FFF;
+-fx-background-color: #283847;
+}
+#ratingBtn: hover{
+-fx-text-fill: #FFF;
+-fx-background-color: #283847;
+}
+#genPrivAucBtn: hover{
+-fx-text-fill: #FFF;
+-fx-background-color: #283847;
+}
+#overviewBtn: hover{
+-fx-text-fill: #FFF;
+-fx-background-color: #283847;
+}
 #closeBtn: hover
 {
 -fx-fill: #FFF;
