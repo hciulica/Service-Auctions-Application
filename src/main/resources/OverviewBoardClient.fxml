@@ -89,7 +89,7 @@
                         <Font name="System Bold" size="16.0" />
                     </font>
                 </Label>
-                <Label layoutX="342.0" layoutY="17.0" text="Price">
+                <Label layoutX="319.0" layoutY="17.0" text="Activity Field">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>

@@ -1,6 +1,7 @@
 package services;
 
 import controllers.registration.LoginController;
+import javafx.scene.control.Label;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -294,7 +295,7 @@ public class Client {
 
             }
             win.add(obj4);
-            System.out.println(obj4);
+
             submit(obj4,s);
             closeed(obj);
         }
@@ -560,7 +561,6 @@ public class Client {
 
             }
         }
-        System.out.println(lista);
         return lista;
     }
     public static JSONArray compare(){
@@ -601,7 +601,6 @@ public class Client {
                     obj4.put("Rate:", obj2.get("Rate:"));
 
                     display.add(obj4);
-                    System.out.println(obj4);
                 }
             }
 
@@ -642,7 +641,6 @@ public class Client {
             }
 
 
-                System.out.println(d);
             obj2.remove("Rate:");
             obj2.put("Rate:",d);
             }
@@ -657,7 +655,107 @@ public class Client {
             e.printStackTrace();
         }
     }
+    public static void overView(Label money, Label progress, Label total)
+    {
+        JSONParser parser = new JSONParser();
+        Object p;
+        JSONArray arrayClient = new JSONArray();
+        try {
+            FileReader readFile = new FileReader("src/main/resources/usersClient.json");
+            BufferedReader read = new BufferedReader(readFile);
+            p = parser.parse(read);
+            if (p instanceof JSONArray) {
+                arrayClient = (JSONArray) p;
+            }
+        } catch (ParseException parseException) {
+            parseException.printStackTrace();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+
+        Iterator<JSONObject> iterator = arrayClient.iterator();
 
 
+        Integer profit=0;
+        Integer prog=0;
+        Integer wins=0;
+
+        while (iterator.hasNext()) {
+            JSONObject obj2 = iterator.next();
+
+                if(obj2.get("Email:").equals(LoginController.email)){
+                    wins = displayover().size();
+                    Iterator<JSONObject> iterator2 = displayover().iterator();
+                    while(iterator2.hasNext()){
+                        JSONObject obj1 = iterator2.next();
+                        if(!obj1.containsKey("Status:")){
+                            prog++;
+                        }
+                        if(obj1.containsKey("Winner:")) {
+                            JSONArray arr1 = (JSONArray) obj1.get("Winner:");
+                            Iterator<JSONObject> iterator3 = arr1.iterator();
+                            while (iterator3.hasNext()) {
+                                JSONObject obj3 = iterator3.next();
+
+
+                                if (obj3.containsKey("Price:")) {
+
+
+                                    profit = profit + Integer.parseInt((String)obj3.get("Price:"));
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+
+
+        money.setText(Integer.toString(profit)+ " RON");
+        progress.setText(Integer.toString(prog));
+        total.setText(Integer.toString(wins));
+    }
+    public static JSONArray displayover()
+    {
+        JSONParser parser = new JSONParser();
+        Object p;
+        JSONArray arrayClient = new JSONArray();
+        try {
+            FileReader readFile = new FileReader("src/main/resources/usersClient.json");
+            BufferedReader read = new BufferedReader(readFile);
+            p = parser.parse(read);
+            if (p instanceof JSONArray) {
+                arrayClient = (JSONArray) p;
+            }
+        } catch (ParseException parseException) {
+            parseException.printStackTrace();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+
+        Iterator<JSONObject> iterator = arrayClient.iterator();
+        JSONArray display = new JSONArray();
+
+        while (iterator.hasNext()) {
+            JSONObject obj2 = iterator.next();
+            JSONArray arr1 = (JSONArray)obj2.get("Public auction:");
+            JSONArray arr2 = (JSONArray)obj2.get("Private auction:");
+            Iterator<JSONObject> iterator2 = arr2.iterator();
+            if(obj2.get("Email:").equals(LoginController.email)){
+                display = arr1;
+            while(iterator2.hasNext()){
+                JSONObject obj1 = iterator2.next();
+                display.add(obj1);
+            }
+
+            }
+
+
+
+
+        }
+            return display;
+    }
 }
 
