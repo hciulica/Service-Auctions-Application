@@ -115,6 +115,8 @@ public class User {
         obj.put("Password:",encodePassword(key,initVector,password));
         obj.put("Submited Auction:",array);
         obj.put("Wins:",array);
+        double i=0;
+        obj.put("Rate:",i);
         arrayProvider.add(obj);
         try {
             File file = new File("src/main/resources/usersProvider.json");
