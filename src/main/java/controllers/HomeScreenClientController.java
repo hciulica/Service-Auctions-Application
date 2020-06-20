@@ -35,6 +35,12 @@ public class HomeScreenClientController implements Initializable {
     @FXML
     public Label client;
     @FXML
+    public void handleOverviewBtnAction (ActionEvent event){
+        FxmlLoader object= new FxmlLoader();
+        Pane view = object.getPage("OverviewBoardClient");
+        mainPane.setCenter(view);
+    }
+    @FXML
     public void handleRatingAction(ActionEvent event){
         FxmlLoader object= new FxmlLoader();
         Pane view = object.getPage("Rating");

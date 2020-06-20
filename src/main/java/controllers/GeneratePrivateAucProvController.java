@@ -47,8 +47,6 @@ public class GeneratePrivateAucProvController implements Initializable {
                     for (int i = 0; i < array2.size() && k == 0; i++) {
 
                         JSONObject obj3 = (JSONObject) array2.get(i);
-                        System.out.println(obj3);
-                        System.out.println(User.name);
                         if (obj3.containsKey(User.name)) {
                             k = 1;
                             break;

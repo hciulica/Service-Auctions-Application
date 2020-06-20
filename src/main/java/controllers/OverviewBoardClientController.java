@@ -10,6 +10,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import services.Client;
 import services.Service;
 
 import java.io.IOException;
@@ -17,8 +18,7 @@ import java.net.URL;
 import java.util.Iterator;
 import java.util.ResourceBundle;
 
-public class OverviewBoardServiceController  implements Initializable {
-
+public class OverviewBoardClientController implements Initializable {
     @FXML
     public Label profit;
     @FXML
@@ -27,8 +27,6 @@ public class OverviewBoardServiceController  implements Initializable {
     public Label winnings;
     @FXML
     public VBox pinAuc;
-
-
     @FXML
     public FontAwesomeIconView closeBtn2;
     //close window
@@ -38,38 +36,34 @@ public class OverviewBoardServiceController  implements Initializable {
             System.exit(0);
         }
     }
-
     public void display()  {
         try {
             JSONArray array=new JSONArray();
-            array= Service.displayOverview();
+            array= Client.displayover();
             Iterator<JSONObject> iterator = array.iterator();
             while (iterator.hasNext())
             {
                 JSONObject obj2 = iterator.next();
                 //if the status of the obj is closed it will not be displayed
 
-                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("OverviewService.fxml"));
-                    Pane root = null;
-                    root = loader.load();
-                    OverviewServiceController auction = loader.getController();
-                    auction.setParent(pinAuc);
-                    String status="active";
-                    if(obj2.containsKey("Status:"))
-                    {
-                        status="closed" ;
-                        auction.setFields((String) obj2.get("Title:"), (String) obj2.get("Submited prices:")+ " RON", status);
-                    }
-
-                    if(obj2.containsKey("Client:"))
-                    {
-                        status="win" ;
-                        auction.setFields((String) obj2.get("Title:"), (String) obj2.get("Price:")+ " RON", status);
-                    }
-                    else auction.setFields((String) obj2.get("Title:"), (String) obj2.get("Submited prices:")+ " RON", status);
-
-                    pinAuc.getChildren().add(root);
+                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("OverviewService.fxml"));
+                Pane root = null;
+                root = loader.load();
+                OverviewServiceController auction = loader.getController();
+                auction.setParent(pinAuc);
+                String status="active";
+                if(obj2.containsKey("Status:"))
+                {
+                    status="closed" ;
+                    auction.setFields((String) obj2.get("Title:"), (String) obj2.get("Activity Field:"), status);
                 }
+            if(!obj2.containsKey("Activity Field:")) {
+                auction.setFields((String) obj2.get("Title:"),"Private Auction",status);
+            }
+                else auction.setFields((String) obj2.get("Title:"), (String) obj2.get("Activity Field:"), status);
+
+                pinAuc.getChildren().add(root);
+            }
 
 
         }
@@ -78,11 +72,9 @@ public class OverviewBoardServiceController  implements Initializable {
             e.printStackTrace();
         }
     }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Service.overView(profit,progress, winnings);
+        Client.overView(profit,progress,winnings);
         display();
-
     }
 }

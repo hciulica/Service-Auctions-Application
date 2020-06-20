@@ -11,7 +11,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="price" layoutX="327.0" layoutY="15.0" prefHeight="22.0" prefWidth="77.0" text="300 RON" textFill="#000000a6">
+      <Label fx:id="price" alignment="CENTER" contentDisplay="CENTER" layoutX="248.0" layoutY="15.0" prefHeight="25.0" prefWidth="245.0" text="300 RON" textAlignment="CENTER" textFill="#000000a6" wrapText="true">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

@@ -240,7 +240,7 @@ private static JSONObject submitedAuc = new JSONObject();
             }
 
         }
-        System.out.println(display);
+
         return display;
     }
     public static void submitPricePrivate(String price,String title,String description){
