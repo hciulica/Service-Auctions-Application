@@ -29,7 +29,7 @@ public class PrivateAuctionClientController implements Initializable {
     public Label description;
     @FXML
     public JFXButton closeAucBtn;
-    private VBox parent;
+    public VBox parent;
     @FXML
     private Pane dealRoot;
     @FXML

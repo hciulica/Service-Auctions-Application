@@ -42,19 +42,21 @@ public class RatingController implements Initializable {
         try {
             JSONArray jar1 = Client.compare();
             Iterator <JSONObject> it = jar1.iterator();
-            while(it.hasNext()){
-                JSONObject obj2 = it.next();
-                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("RateRow.fxml"));
-                Pane root = null;
-                root = loader.load();
-                RateRowController rating = loader.getController();
-                rating.setParent(pinAuc);
-                rating.setName(nameRating,text,stars);
+            if(!jar1.isEmpty()) {
+                while (it.hasNext()) {
+                    JSONObject obj2 = it.next();
+                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("RateRow.fxml"));
+                    Pane root = null;
+                    root = loader.load();
+                    RateRowController rating = loader.getController();
+                    rating.setParent(pinAuc);
+                    rating.setName(nameRating, text, stars);
 
-                rating.setFields((String)obj2.get("Name:"),(double)obj2.get("Rate:"));
+                    rating.setFields((String) obj2.get("Name:"), (double) obj2.get("Rate:"));
 
-                pinAuc.getChildren().add(root);
+                    pinAuc.getChildren().add(root);
 
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();

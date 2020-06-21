@@ -46,7 +46,7 @@ public class GeneratePrivateAucClientController implements Initializable {
     public Label error;
     @FXML
     public Label message;
-    private List<String> invitedBusiness=new ArrayList<>();
+    public List<String> invitedBusiness=new ArrayList<>();
 
     @FXML
     public void handleInviteButtonAction(ActionEvent event)

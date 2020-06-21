@@ -1,4 +1,4 @@
-package controllers.registration;
+package controllers;
 
 import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
@@ -39,7 +39,7 @@ public class SignUpServiceController implements Initializable {
     @FXML
     private AnchorPane anchorRoot;
     @FXML
-    private ComboBox <String> fieldBtn;
+    public ComboBox <String> fieldBtn;
     @FXML
     public Label signinBtn;
     @FXML
