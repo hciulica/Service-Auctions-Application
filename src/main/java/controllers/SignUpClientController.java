@@ -1,4 +1,4 @@
-package controllers.registration;
+package controllers;
 
 import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
@@ -87,7 +87,7 @@ public class SignUpClientController implements Initializable {
             //Load the Home Page for client
             Parent home_page_parent = FXMLLoader.load(getClass().getClassLoader().getResource("HomeScreenClient.fxml"));
             Scene home_page_scene = new Scene(home_page_parent);
-            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Stage app_stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             app_stage.hide();
             app_stage.setScene(home_page_scene);
             app_stage.show();
@@ -100,6 +100,7 @@ public class SignUpClientController implements Initializable {
         catch(EmailNotAvailable e)
         {
             signUpMessage.setText(e.getMessage());
+
         }
 
     }

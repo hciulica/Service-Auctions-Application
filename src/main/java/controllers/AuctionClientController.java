@@ -27,7 +27,7 @@ public class AuctionClientController implements Initializable {
     public Label description;
     @FXML
     public JFXButton closeAucBtn;
-    private VBox parent;
+    public VBox parent;
 
     @FXML
     private Pane dealRoot;
@@ -97,6 +97,7 @@ public class AuctionClientController implements Initializable {
             obj3=iterator.next();
             listPrice.add(getJsonObject(obj3));
             priceBtn.setItems(FXCollections.observableArrayList(listPrice));
+
 
 
         }

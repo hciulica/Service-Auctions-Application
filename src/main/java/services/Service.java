@@ -1,6 +1,6 @@
 package services;
 
-import controllers.registration.LoginController;
+import controllers.LoginController;
 import javafx.scene.control.Label;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

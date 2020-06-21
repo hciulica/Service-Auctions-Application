@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'jacoco'
 
 
 
@@ -28,13 +29,22 @@ dependencies {
     compile group: 'javax.mail', name: 'javax.mail-api', version: '1.6.0'
 // https://mvnrepository.com/artifact/org.controlsfx/controlsfx
     compile group: 'org.controlsfx', name: 'controlsfx', version: '8.40.15'
+    // https://mvnrepository.com/artifact/org.testfx/testfx-junit
+    testCompile group: 'org.testfx', name: 'testfx-junit', version: '4.0.15-alpha'
 
 
+}
 
-
-
-
-
-
-
+jacoco{
+    toolVersion = "0.8.5"
+}
+jacocoTestReport {
+    reports {
+        xml.enabled=false
+        csv.enabled=false
+        html.enabled=true
+    }
+}
+test {
+    finalizedBy jacocoTestReport
 }

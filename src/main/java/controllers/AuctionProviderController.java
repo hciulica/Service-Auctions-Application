@@ -1,6 +1,7 @@
 package controllers;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -8,9 +9,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import org.json.simple.JSONObject;
-
-import javax.swing.*;
-import javafx.event.ActionEvent;
 import services.Service;
 
 import java.net.URL;
@@ -27,7 +25,7 @@ public class AuctionProviderController implements Initializable {
     @FXML
     public JFXButton submitBtn;
 
-    private VBox parent;
+    public VBox parent;
 
     @FXML
     private Pane dealRoot;
